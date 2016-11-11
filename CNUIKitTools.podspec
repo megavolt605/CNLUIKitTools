@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
                    DESC
 
-  s.homepage     = "http://EXAMPLE/CNUIKitTools"
+  s.homepage     = "https://github.com/megavolt605/CNUIKitTools"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
