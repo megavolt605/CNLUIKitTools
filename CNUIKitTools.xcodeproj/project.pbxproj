@@ -8,12 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		780426EE1DD60AE400878F72 /* CNUIKitTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 780426EC1DD60AE400878F72 /* CNUIKitTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		780426F91DD60D0900878F72 /* CNUIT+CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426F81DD60D0900878F72 /* CNUIT+CGRect.swift */; };
+		780426FB1DD60D3F00878F72 /* CNUIT+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FA1DD60D3F00878F72 /* CNUIT+UIColor.swift */; };
+		780426FD1DD60D6900878F72 /* CNUIT+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FC1DD60D6900878F72 /* CNUIT+CALayer.swift */; };
+		780426FF1DD60D8800878F72 /* CNUIT+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FE1DD60D8800878F72 /* CNUIT+UIView.swift */; };
+		780427011DD60DB100878F72 /* CNUIT+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427001DD60DB100878F72 /* CNUIT+UILabel.swift */; };
+		780427031DD60DF300878F72 /* CNUIT+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427021DD60DF300878F72 /* CNUIT+UIImage.swift */; };
+		780427051DD60E4100878F72 /* CNUIT+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427041DD60E4100878F72 /* CNUIT+UIImageView.swift */; };
+		780427071DD60E7800878F72 /* CNUIT+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427061DD60E7800878F72 /* CNUIT+UITableView.swift */; };
+		780427091DD60EA200878F72 /* CNUIT+UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427081DD60EA200878F72 /* CNUIT+UINavigationBar.swift */; };
+		7804270B1DD60EC800878F72 /* CNUIT+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804270A1DD60EC800878F72 /* CNUIT+UINavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		780426E91DD60AE400878F72 /* CNUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		780426EC1DD60AE400878F72 /* CNUIKitTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CNUIKitTools.h; sourceTree = "<group>"; };
-		780426ED1DD60AE400878F72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		780426EC1DD60AE400878F72 /* CNUIKitTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CNUIKitTools.h; path = CNUIKitTools/CNUIKitTools.h; sourceTree = "<group>"; };
+		780426ED1DD60AE400878F72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CNUIKitTools/Info.plist; sourceTree = "<group>"; };
+		780426F51DD60C3400878F72 /* CNUIKitTools.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CNUIKitTools.podspec; sourceTree = "<group>"; };
+		780426F81DD60D0900878F72 /* CNUIT+CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+CGRect.swift"; sourceTree = "<group>"; };
+		780426FA1DD60D3F00878F72 /* CNUIT+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UIColor.swift"; sourceTree = "<group>"; };
+		780426FC1DD60D6900878F72 /* CNUIT+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+CALayer.swift"; sourceTree = "<group>"; };
+		780426FE1DD60D8800878F72 /* CNUIT+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UIView.swift"; sourceTree = "<group>"; };
+		780427001DD60DB100878F72 /* CNUIT+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UILabel.swift"; sourceTree = "<group>"; };
+		780427021DD60DF300878F72 /* CNUIT+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UIImage.swift"; sourceTree = "<group>"; };
+		780427041DD60E4100878F72 /* CNUIT+UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UIImageView.swift"; sourceTree = "<group>"; };
+		780427061DD60E7800878F72 /* CNUIT+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UITableView.swift"; sourceTree = "<group>"; };
+		780427081DD60EA200878F72 /* CNUIT+UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UINavigationBar.swift"; sourceTree = "<group>"; };
+		7804270A1DD60EC800878F72 /* CNUIT+UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UINavigationController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				780426EB1DD60AE400878F72 /* CNUIKitTools */,
+				780426F41DD60B9900878F72 /* Supporting Files */,
 				780426EA1DD60AE400878F72 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,10 +68,36 @@
 		780426EB1DD60AE400878F72 /* CNUIKitTools */ = {
 			isa = PBXGroup;
 			children = (
+				780426F71DD60CE900878F72 /* Extensions */,
+			);
+			path = CNUIKitTools;
+			sourceTree = "<group>";
+		};
+		780426F41DD60B9900878F72 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				780426F51DD60C3400878F72 /* CNUIKitTools.podspec */,
 				780426EC1DD60AE400878F72 /* CNUIKitTools.h */,
 				780426ED1DD60AE400878F72 /* Info.plist */,
 			);
-			path = CNUIKitTools;
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		780426F71DD60CE900878F72 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				780426F81DD60D0900878F72 /* CNUIT+CGRect.swift */,
+				780426FA1DD60D3F00878F72 /* CNUIT+UIColor.swift */,
+				780426FC1DD60D6900878F72 /* CNUIT+CALayer.swift */,
+				780426FE1DD60D8800878F72 /* CNUIT+UIView.swift */,
+				780427001DD60DB100878F72 /* CNUIT+UILabel.swift */,
+				780427021DD60DF300878F72 /* CNUIT+UIImage.swift */,
+				780427041DD60E4100878F72 /* CNUIT+UIImageView.swift */,
+				780427061DD60E7800878F72 /* CNUIT+UITableView.swift */,
+				780427081DD60EA200878F72 /* CNUIT+UINavigationBar.swift */,
+				7804270A1DD60EC800878F72 /* CNUIT+UINavigationController.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +143,7 @@
 				TargetAttributes = {
 					780426E81DD60AE400878F72 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +180,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				780426FF1DD60D8800878F72 /* CNUIT+UIView.swift in Sources */,
+				7804270B1DD60EC800878F72 /* CNUIT+UINavigationController.swift in Sources */,
+				780427091DD60EA200878F72 /* CNUIT+UINavigationBar.swift in Sources */,
+				780427071DD60E7800878F72 /* CNUIT+UITableView.swift in Sources */,
+				780426FD1DD60D6900878F72 /* CNUIT+CALayer.swift in Sources */,
+				780426F91DD60D0900878F72 /* CNUIT+CGRect.swift in Sources */,
+				780427051DD60E4100878F72 /* CNUIT+UIImageView.swift in Sources */,
+				780426FB1DD60D3F00878F72 /* CNUIT+UIColor.swift in Sources */,
+				780427011DD60DB100878F72 /* CNUIT+UILabel.swift in Sources */,
+				780427031DD60DF300878F72 /* CNUIT+UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +298,7 @@
 		780426F21DD60AE400878F72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -250,6 +310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ru.complexnumbers.CNUIKitTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -257,6 +318,7 @@
 		780426F31DD60AE400878F72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
