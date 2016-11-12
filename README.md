@@ -2,7 +2,7 @@
 Common extensions to UIKit
 
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
-<a href="https://cocoapods.org/pods/CNUIKitTools"><img src="https://img.shields.io/badge/pod-0.0.1-blue.svg" alt="CocoaPods compatible" /></a>
+<a href="https://cocoapods.org/pods/CNUIKitTools"><img src="https://img.shields.io/badge/pod-0.0.3-blue.svg" alt="CocoaPods compatible" /></a>
 
 ## Installation
 
