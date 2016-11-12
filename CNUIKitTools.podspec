@@ -133,6 +133,6 @@ Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.dependency "CNFoundationTools" # , "~> 1.4"
 
 end

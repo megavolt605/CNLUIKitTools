@@ -7,7 +7,7 @@
 //
 
 import UIKit
-/*import AVFoundation
+import AVFoundation
 import ImageIO
 
 import CNFoundationTools
@@ -240,4 +240,3 @@ open class CNCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     }
     
 }
-*/
