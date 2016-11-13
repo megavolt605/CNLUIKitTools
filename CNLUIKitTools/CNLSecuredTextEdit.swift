@@ -1,6 +1,6 @@
 //
-//  CNSecuredTextEdit.swift
-//  CNUIKitTools
+//  CNLSecuredTextEdit.swift
+//  CNLUIKitTools
 //
 //  Created by Igor Smirnov on 12/11/2016.
 //  Copyright © 2016 Complex Numbers. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CNSecuredTextField: UITextField {
+open class CNLSecuredTextField: UITextField {
     
     open var secured = true
     

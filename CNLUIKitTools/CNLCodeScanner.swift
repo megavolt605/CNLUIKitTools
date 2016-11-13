@@ -1,6 +1,6 @@
 //
-//  CNCodeScanner.swift
-//  CNUIKitTools
+//  CNLCodeScanner.swift
+//  CNLUIKitTools
 //
 //  Created by Igor Smirnov on 12/11/2016.
 //  Copyright © 2016 Complex Numbers. All rights reserved.
@@ -10,22 +10,22 @@ import UIKit
 import AVFoundation
 import ImageIO
 
-import CNFoundationTools
+import CNLFoundationTools
 
-public protocol CNCodeScannerDelegate: class {
-    func codeScanner(_ codeScanner: CNCodeScanner, didScanCode code: String, ofType type: String, screenshot: UIImage?)
-    func codeScanner(_ codeScanner: CNCodeScanner, didTakePhoto image: UIImage?)
-    func codeScannerError(_ codeScanner: CNCodeScanner)
+public protocol CNLCodeScannerDelegate: class {
+    func codeScanner(_ codeScanner: CNLCodeScanner, didScanCode code: String, ofType type: String, screenshot: UIImage?)
+    func codeScanner(_ codeScanner: CNLCodeScanner, didTakePhoto image: UIImage?)
+    func codeScannerError(_ codeScanner: CNLCodeScanner)
 }
 
-public enum CNCodeScannerMode {
+public enum CNLCodeScannerMode {
     case scanCode
     case takePhoto
 }
 
-open class CNCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
+open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
-    open var delegate: CNCodeScannerDelegate?
+    open var delegate: CNLCodeScannerDelegate?
     
     var captureSession: AVCaptureSession!
     var captureDevice: AVCaptureDevice!
@@ -34,7 +34,7 @@ open class CNCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     var videoPreviewView: UIView!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
     var isReading = false
-    open var mode: CNCodeScannerMode = .scanCode
+    open var mode: CNLCodeScannerMode = .scanCode
     
     open func startReading(_ inView: UIView, isFront: Bool) -> Bool {
         let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)

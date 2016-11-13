@@ -7,49 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		780426EE1DD60AE400878F72 /* CNUIKitTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 780426EC1DD60AE400878F72 /* CNUIKitTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		780426F91DD60D0900878F72 /* CNUIT+CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426F81DD60D0900878F72 /* CNUIT+CGRect.swift */; };
-		780426FB1DD60D3F00878F72 /* CNUIT+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FA1DD60D3F00878F72 /* CNUIT+UIColor.swift */; };
-		780426FD1DD60D6900878F72 /* CNUIT+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FC1DD60D6900878F72 /* CNUIT+CALayer.swift */; };
-		780426FF1DD60D8800878F72 /* CNUIT+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FE1DD60D8800878F72 /* CNUIT+UIView.swift */; };
-		780427011DD60DB100878F72 /* CNUIT+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427001DD60DB100878F72 /* CNUIT+UILabel.swift */; };
-		780427031DD60DF300878F72 /* CNUIT+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427021DD60DF300878F72 /* CNUIT+UIImage.swift */; };
-		780427051DD60E4100878F72 /* CNUIT+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427041DD60E4100878F72 /* CNUIT+UIImageView.swift */; };
-		780427071DD60E7800878F72 /* CNUIT+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427061DD60E7800878F72 /* CNUIT+UITableView.swift */; };
-		780427091DD60EA200878F72 /* CNUIT+UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427081DD60EA200878F72 /* CNUIT+UINavigationBar.swift */; };
-		7804270B1DD60EC800878F72 /* CNUIT+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804270A1DD60EC800878F72 /* CNUIT+UINavigationController.swift */; };
-		781135911DD7860A000D94CD /* CNQRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135901DD7860A000D94CD /* CNQRCodeGenerator.swift */; };
-		781135931DD78692000D94CD /* CNSecuredTextEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135921DD78692000D94CD /* CNSecuredTextEdit.swift */; };
-		781135951DD78773000D94CD /* CNTopAlignedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135941DD78773000D94CD /* CNTopAlignedLabel.swift */; };
-		781135971DD78864000D94CD /* CNCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135961DD78864000D94CD /* CNCodeScanner.swift */; };
+		780426EE1DD60AE400878F72 /* CNLUIKitTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 780426EC1DD60AE400878F72 /* CNLUIKitTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		780426F91DD60D0900878F72 /* CNLUIT+CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426F81DD60D0900878F72 /* CNLUIT+CGRect.swift */; };
+		780426FB1DD60D3F00878F72 /* CNLUIT+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FA1DD60D3F00878F72 /* CNLUIT+UIColor.swift */; };
+		780426FD1DD60D6900878F72 /* CNLUIT+CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FC1DD60D6900878F72 /* CNLUIT+CALayer.swift */; };
+		780426FF1DD60D8800878F72 /* CNLUIT+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780426FE1DD60D8800878F72 /* CNLUIT+UIView.swift */; };
+		780427011DD60DB100878F72 /* CNLUIT+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427001DD60DB100878F72 /* CNLUIT+UILabel.swift */; };
+		780427031DD60DF300878F72 /* CNLUIT+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427021DD60DF300878F72 /* CNLUIT+UIImage.swift */; };
+		780427051DD60E4100878F72 /* CNLUIT+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427041DD60E4100878F72 /* CNLUIT+UIImageView.swift */; };
+		780427071DD60E7800878F72 /* CNLUIT+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427061DD60E7800878F72 /* CNLUIT+UITableView.swift */; };
+		780427091DD60EA200878F72 /* CNLUIT+UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780427081DD60EA200878F72 /* CNLUIT+UINavigationBar.swift */; };
+		7804270B1DD60EC800878F72 /* CNLUIT+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7804270A1DD60EC800878F72 /* CNLUIT+UINavigationController.swift */; };
+		781135911DD7860A000D94CD /* CNLQRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135901DD7860A000D94CD /* CNLQRCodeGenerator.swift */; };
+		781135931DD78692000D94CD /* CNLSecuredTextEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135921DD78692000D94CD /* CNLSecuredTextEdit.swift */; };
+		781135951DD78773000D94CD /* CNLTopAlignedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135941DD78773000D94CD /* CNLTopAlignedLabel.swift */; };
+		781135971DD78864000D94CD /* CNLCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135961DD78864000D94CD /* CNLCodeScanner.swift */; };
 		7811359A1DD7907F000D94CD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 781135981DD7907F000D94CD /* README.md */; };
 		7811359B1DD7907F000D94CD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 781135991DD7907F000D94CD /* LICENSE */; };
+		949713A53EA1E0C433447949 /* Pods_CNLUIKitTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F00A2C1238F4A5897A91C6 /* Pods_CNLUIKitTools.framework */; };
 		D67F79E35D5D9B970171DA14 /* Pods_CNUIKitTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CBEAD0BBAA5E36C753658C /* Pods_CNUIKitTools.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4421681133494D690E79B0F2 /* Pods-CNLUIKitTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNLUIKitTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-CNLUIKitTools/Pods-CNLUIKitTools.release.xcconfig"; sourceTree = "<group>"; };
 		4EA3D40EA26D708902F4320C /* Pods-CNUIKitTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNUIKitTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-CNUIKitTools/Pods-CNUIKitTools.release.xcconfig"; sourceTree = "<group>"; };
-		780426E91DD60AE400878F72 /* CNUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		780426EC1DD60AE400878F72 /* CNUIKitTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CNUIKitTools.h; path = CNUIKitTools/CNUIKitTools.h; sourceTree = "<group>"; };
-		780426ED1DD60AE400878F72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CNUIKitTools/Info.plist; sourceTree = "<group>"; };
-		780426F51DD60C3400878F72 /* CNUIKitTools.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CNUIKitTools.podspec; sourceTree = "<group>"; };
-		780426F81DD60D0900878F72 /* CNUIT+CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+CGRect.swift"; sourceTree = "<group>"; };
-		780426FA1DD60D3F00878F72 /* CNUIT+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UIColor.swift"; sourceTree = "<group>"; };
-		780426FC1DD60D6900878F72 /* CNUIT+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+CALayer.swift"; sourceTree = "<group>"; };
-		780426FE1DD60D8800878F72 /* CNUIT+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UIView.swift"; sourceTree = "<group>"; };
-		780427001DD60DB100878F72 /* CNUIT+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UILabel.swift"; sourceTree = "<group>"; };
-		780427021DD60DF300878F72 /* CNUIT+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UIImage.swift"; sourceTree = "<group>"; };
-		780427041DD60E4100878F72 /* CNUIT+UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UIImageView.swift"; sourceTree = "<group>"; };
-		780427061DD60E7800878F72 /* CNUIT+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UITableView.swift"; sourceTree = "<group>"; };
-		780427081DD60EA200878F72 /* CNUIT+UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UINavigationBar.swift"; sourceTree = "<group>"; };
-		7804270A1DD60EC800878F72 /* CNUIT+UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNUIT+UINavigationController.swift"; sourceTree = "<group>"; };
-		781135901DD7860A000D94CD /* CNQRCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNQRCodeGenerator.swift; sourceTree = "<group>"; };
-		781135921DD78692000D94CD /* CNSecuredTextEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNSecuredTextEdit.swift; sourceTree = "<group>"; };
-		781135941DD78773000D94CD /* CNTopAlignedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNTopAlignedLabel.swift; sourceTree = "<group>"; };
-		781135961DD78864000D94CD /* CNCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNCodeScanner.swift; sourceTree = "<group>"; };
+		73D88C5D66263026883190FD /* Pods-CNLUIKitTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNLUIKitTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CNLUIKitTools/Pods-CNLUIKitTools.debug.xcconfig"; sourceTree = "<group>"; };
+		780426E91DD60AE400878F72 /* CNLUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CNLUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		780426EC1DD60AE400878F72 /* CNLUIKitTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CNLUIKitTools.h; path = CNLUIKitTools/CNLUIKitTools.h; sourceTree = "<group>"; };
+		780426ED1DD60AE400878F72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CNLUIKitTools/Info.plist; sourceTree = "<group>"; };
+		780426F51DD60C3400878F72 /* CNLUIKitTools.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CNLUIKitTools.podspec; sourceTree = "<group>"; };
+		780426F81DD60D0900878F72 /* CNLUIT+CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+CGRect.swift"; sourceTree = "<group>"; };
+		780426FA1DD60D3F00878F72 /* CNLUIT+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UIColor.swift"; sourceTree = "<group>"; };
+		780426FC1DD60D6900878F72 /* CNLUIT+CALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+CALayer.swift"; sourceTree = "<group>"; };
+		780426FE1DD60D8800878F72 /* CNLUIT+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UIView.swift"; sourceTree = "<group>"; };
+		780427001DD60DB100878F72 /* CNLUIT+UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UILabel.swift"; sourceTree = "<group>"; };
+		780427021DD60DF300878F72 /* CNLUIT+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UIImage.swift"; sourceTree = "<group>"; };
+		780427041DD60E4100878F72 /* CNLUIT+UIImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UIImageView.swift"; sourceTree = "<group>"; };
+		780427061DD60E7800878F72 /* CNLUIT+UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UITableView.swift"; sourceTree = "<group>"; };
+		780427081DD60EA200878F72 /* CNLUIT+UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UINavigationBar.swift"; sourceTree = "<group>"; };
+		7804270A1DD60EC800878F72 /* CNLUIT+UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UINavigationController.swift"; sourceTree = "<group>"; };
+		781135901DD7860A000D94CD /* CNLQRCodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLQRCodeGenerator.swift; sourceTree = "<group>"; };
+		781135921DD78692000D94CD /* CNLSecuredTextEdit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLSecuredTextEdit.swift; sourceTree = "<group>"; };
+		781135941DD78773000D94CD /* CNLTopAlignedLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLTopAlignedLabel.swift; sourceTree = "<group>"; };
+		781135961DD78864000D94CD /* CNLCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLCodeScanner.swift; sourceTree = "<group>"; };
 		781135981DD7907F000D94CD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		781135991DD7907F000D94CD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		90CBEAD0BBAA5E36C753658C /* Pods_CNUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CNUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5F00A2C1238F4A5897A91C6 /* Pods_CNLUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CNLUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED479F79E4350344F2B0A809 /* Pods-CNUIKitTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNUIKitTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CNUIKitTools/Pods-CNUIKitTools.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D67F79E35D5D9B970171DA14 /* Pods_CNUIKitTools.framework in Frameworks */,
+				949713A53EA1E0C433447949 /* Pods_CNLUIKitTools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +75,8 @@
 			children = (
 				ED479F79E4350344F2B0A809 /* Pods-CNUIKitTools.debug.xcconfig */,
 				4EA3D40EA26D708902F4320C /* Pods-CNUIKitTools.release.xcconfig */,
+				73D88C5D66263026883190FD /* Pods-CNLUIKitTools.debug.xcconfig */,
+				4421681133494D690E79B0F2 /* Pods-CNLUIKitTools.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -77,7 +84,7 @@
 		780426DF1DD60AE400878F72 = {
 			isa = PBXGroup;
 			children = (
-				780426EB1DD60AE400878F72 /* CNUIKitTools */,
+				780426EB1DD60AE400878F72 /* CNLUIKitTools */,
 				780426F41DD60B9900878F72 /* Supporting Files */,
 				780426EA1DD60AE400878F72 /* Products */,
 				46B50BBFFD9D7A7E44CB2809 /* Pods */,
@@ -88,21 +95,21 @@
 		780426EA1DD60AE400878F72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				780426E91DD60AE400878F72 /* CNUIKitTools.framework */,
+				780426E91DD60AE400878F72 /* CNLUIKitTools.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		780426EB1DD60AE400878F72 /* CNUIKitTools */ = {
+		780426EB1DD60AE400878F72 /* CNLUIKitTools */ = {
 			isa = PBXGroup;
 			children = (
-				781135901DD7860A000D94CD /* CNQRCodeGenerator.swift */,
-				781135921DD78692000D94CD /* CNSecuredTextEdit.swift */,
-				781135941DD78773000D94CD /* CNTopAlignedLabel.swift */,
-				781135961DD78864000D94CD /* CNCodeScanner.swift */,
+				781135901DD7860A000D94CD /* CNLQRCodeGenerator.swift */,
+				781135921DD78692000D94CD /* CNLSecuredTextEdit.swift */,
+				781135941DD78773000D94CD /* CNLTopAlignedLabel.swift */,
+				781135961DD78864000D94CD /* CNLCodeScanner.swift */,
 				780426F71DD60CE900878F72 /* Extensions */,
 			);
-			path = CNUIKitTools;
+			path = CNLUIKitTools;
 			sourceTree = "<group>";
 		};
 		780426F41DD60B9900878F72 /* Supporting Files */ = {
@@ -110,8 +117,8 @@
 			children = (
 				781135981DD7907F000D94CD /* README.md */,
 				781135991DD7907F000D94CD /* LICENSE */,
-				780426F51DD60C3400878F72 /* CNUIKitTools.podspec */,
-				780426EC1DD60AE400878F72 /* CNUIKitTools.h */,
+				780426F51DD60C3400878F72 /* CNLUIKitTools.podspec */,
+				780426EC1DD60AE400878F72 /* CNLUIKitTools.h */,
 				780426ED1DD60AE400878F72 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -120,16 +127,16 @@
 		780426F71DD60CE900878F72 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				780426F81DD60D0900878F72 /* CNUIT+CGRect.swift */,
-				780426FA1DD60D3F00878F72 /* CNUIT+UIColor.swift */,
-				780426FC1DD60D6900878F72 /* CNUIT+CALayer.swift */,
-				780426FE1DD60D8800878F72 /* CNUIT+UIView.swift */,
-				780427001DD60DB100878F72 /* CNUIT+UILabel.swift */,
-				780427021DD60DF300878F72 /* CNUIT+UIImage.swift */,
-				780427041DD60E4100878F72 /* CNUIT+UIImageView.swift */,
-				780427061DD60E7800878F72 /* CNUIT+UITableView.swift */,
-				780427081DD60EA200878F72 /* CNUIT+UINavigationBar.swift */,
-				7804270A1DD60EC800878F72 /* CNUIT+UINavigationController.swift */,
+				780426F81DD60D0900878F72 /* CNLUIT+CGRect.swift */,
+				780426FA1DD60D3F00878F72 /* CNLUIT+UIColor.swift */,
+				780426FC1DD60D6900878F72 /* CNLUIT+CALayer.swift */,
+				780426FE1DD60D8800878F72 /* CNLUIT+UIView.swift */,
+				780427001DD60DB100878F72 /* CNLUIT+UILabel.swift */,
+				780427021DD60DF300878F72 /* CNLUIT+UIImage.swift */,
+				780427041DD60E4100878F72 /* CNLUIT+UIImageView.swift */,
+				780427061DD60E7800878F72 /* CNLUIT+UITableView.swift */,
+				780427081DD60EA200878F72 /* CNLUIT+UINavigationBar.swift */,
+				7804270A1DD60EC800878F72 /* CNLUIT+UINavigationController.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -138,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				90CBEAD0BBAA5E36C753658C /* Pods_CNUIKitTools.framework */,
+				E5F00A2C1238F4A5897A91C6 /* Pods_CNLUIKitTools.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,16 +157,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				780426EE1DD60AE400878F72 /* CNUIKitTools.h in Headers */,
+				780426EE1DD60AE400878F72 /* CNLUIKitTools.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		780426E81DD60AE400878F72 /* CNUIKitTools */ = {
+		780426E81DD60AE400878F72 /* CNLUIKitTools */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 780426F11DD60AE400878F72 /* Build configuration list for PBXNativeTarget "CNUIKitTools" */;
+			buildConfigurationList = 780426F11DD60AE400878F72 /* Build configuration list for PBXNativeTarget "CNLUIKitTools" */;
 			buildPhases = (
 				52B209CFB16F2E243CD7CF87 /* [CP] Check Pods Manifest.lock */,
 				780426E41DD60AE400878F72 /* Sources */,
@@ -171,9 +179,9 @@
 			);
 			dependencies = (
 			);
-			name = CNUIKitTools;
+			name = CNLUIKitTools;
 			productName = CNUIKitTools;
-			productReference = 780426E91DD60AE400878F72 /* CNUIKitTools.framework */;
+			productReference = 780426E91DD60AE400878F72 /* CNLUIKitTools.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -192,7 +200,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 780426E31DD60AE400878F72 /* Build configuration list for PBXProject "CNUIKitTools" */;
+			buildConfigurationList = 780426E31DD60AE400878F72 /* Build configuration list for PBXProject "CNLUIKitTools" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -204,7 +212,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				780426E81DD60AE400878F72 /* CNUIKitTools */,
+				780426E81DD60AE400878F72 /* CNLUIKitTools */,
 			);
 		};
 /* End PBXProject section */
@@ -233,7 +241,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CNUIKitTools/Pods-CNUIKitTools-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CNLUIKitTools/Pods-CNLUIKitTools-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		52B209CFB16F2E243CD7CF87 /* [CP] Check Pods Manifest.lock */ = {
@@ -258,21 +266,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				780426FF1DD60D8800878F72 /* CNUIT+UIView.swift in Sources */,
-				7804270B1DD60EC800878F72 /* CNUIT+UINavigationController.swift in Sources */,
-				780427091DD60EA200878F72 /* CNUIT+UINavigationBar.swift in Sources */,
-				780427071DD60E7800878F72 /* CNUIT+UITableView.swift in Sources */,
-				781135971DD78864000D94CD /* CNCodeScanner.swift in Sources */,
-				780426FD1DD60D6900878F72 /* CNUIT+CALayer.swift in Sources */,
-				781135931DD78692000D94CD /* CNSecuredTextEdit.swift in Sources */,
-				781135951DD78773000D94CD /* CNTopAlignedLabel.swift in Sources */,
-				781135911DD7860A000D94CD /* CNQRCodeGenerator.swift in Sources */,
-				780426F91DD60D0900878F72 /* CNUIT+CGRect.swift in Sources */,
-				780427051DD60E4100878F72 /* CNUIT+UIImageView.swift in Sources */,
-				780426FB1DD60D3F00878F72 /* CNUIT+UIColor.swift in Sources */,
+				780426FF1DD60D8800878F72 /* CNLUIT+UIView.swift in Sources */,
+				7804270B1DD60EC800878F72 /* CNLUIT+UINavigationController.swift in Sources */,
+				780427091DD60EA200878F72 /* CNLUIT+UINavigationBar.swift in Sources */,
+				780427071DD60E7800878F72 /* CNLUIT+UITableView.swift in Sources */,
+				781135971DD78864000D94CD /* CNLCodeScanner.swift in Sources */,
+				780426FD1DD60D6900878F72 /* CNLUIT+CALayer.swift in Sources */,
+				781135931DD78692000D94CD /* CNLSecuredTextEdit.swift in Sources */,
+				781135951DD78773000D94CD /* CNLTopAlignedLabel.swift in Sources */,
+				781135911DD7860A000D94CD /* CNLQRCodeGenerator.swift in Sources */,
+				780426F91DD60D0900878F72 /* CNLUIT+CGRect.swift in Sources */,
+				780427051DD60E4100878F72 /* CNLUIT+UIImageView.swift in Sources */,
+				780426FB1DD60D3F00878F72 /* CNLUIT+UIColor.swift in Sources */,
 				7811359A1DD7907F000D94CD /* README.md in Sources */,
-				780427011DD60DB100878F72 /* CNUIT+UILabel.swift in Sources */,
-				780427031DD60DF300878F72 /* CNUIT+UIImage.swift in Sources */,
+				780427011DD60DB100878F72 /* CNLUIT+UILabel.swift in Sources */,
+				780427031DD60DF300878F72 /* CNLUIT+UIImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +388,7 @@
 		};
 		780426F21DD60AE400878F72 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ED479F79E4350344F2B0A809 /* Pods-CNUIKitTools.debug.xcconfig */;
+			baseConfigurationReference = 73D88C5D66263026883190FD /* Pods-CNLUIKitTools.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -388,10 +396,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CNUIKitTools/Info.plist;
+				INFOPLIST_FILE = CNLUIKitTools/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.complexnumbers.CNUIKitTools;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.complexnumbers.CNLUIKitTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -401,7 +409,7 @@
 		};
 		780426F31DD60AE400878F72 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4EA3D40EA26D708902F4320C /* Pods-CNUIKitTools.release.xcconfig */;
+			baseConfigurationReference = 4421681133494D690E79B0F2 /* Pods-CNLUIKitTools.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -409,10 +417,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = CNUIKitTools/Info.plist;
+				INFOPLIST_FILE = CNLUIKitTools/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.complexnumbers.CNUIKitTools;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.complexnumbers.CNLUIKitTools;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -422,7 +430,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		780426E31DD60AE400878F72 /* Build configuration list for PBXProject "CNUIKitTools" */ = {
+		780426E31DD60AE400878F72 /* Build configuration list for PBXProject "CNLUIKitTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				780426EF1DD60AE400878F72 /* Debug */,
@@ -431,7 +439,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		780426F11DD60AE400878F72 /* Build configuration list for PBXNativeTarget "CNUIKitTools" */ = {
+		780426F11DD60AE400878F72 /* Build configuration list for PBXNativeTarget "CNLUIKitTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				780426F21DD60AE400878F72 /* Debug */,

@@ -1,6 +1,6 @@
 //
-//  CNTopAlignedLabel.swift
-//  CNUIKitTools
+//  CNLTopAlignedLabel.swift
+//  CNLUIKitTools
 //
 //  Created by Igor Smirnov on 12/11/2016.
 //  Copyright © 2016 Complex Numbers. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CNTopAlignedLabel: UILabel{
+class CNLTopAlignedLabel: UILabel{
     
     override func drawText(in rect: CGRect) {
         if let stringText = text {

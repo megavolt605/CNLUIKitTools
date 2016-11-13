@@ -1,5 +1,5 @@
 #
-#  Be sure to run `pod spec lint CNUIKitTools.podspec' to ensure this is a
+#  Be sure to run `pod spec lint CNLUIKitTools.podspec' to ensure this is a
 #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
@@ -15,8 +15,8 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "CNUIKitTools"
-  s.version      = "0.0.3"
+  s.name         = "CNLUIKitTools"
+  s.version      = "0.0.4"
   s.summary      = "Common extensions to UIKit"
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
 Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
                    DESC
 
-  s.homepage     = "https://github.com/megavolt605/CNUIKitTools"
+  s.homepage     = "https://github.com/megavolt605/CNLUIKitTools"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +80,7 @@ Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/megavolt605/CNUIKitTools.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/megavolt605/CNLUIKitTools.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -91,7 +91,7 @@ Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "CNUIKitTools/**/*.{h,m,swift}"
+  s.source_files  = "CNLUIKitTools/**/*.{h,m,swift}"
   s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -133,6 +133,6 @@ Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "CNFoundationTools" # , "~> 1.4"
+  s.dependency "CNLFoundationTools" # , "~> 1.4"
 
 end

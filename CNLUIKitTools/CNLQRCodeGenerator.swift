@@ -1,6 +1,6 @@
 //
-//  CNQRCodeGenerator.swift
-//  CNUIKitTools
+//  CNLQRCodeGenerator.swift
+//  CNLUIKitTools
 //
 //  Created by Igor Smirnov on 12/11/2016.
 //  Copyright © 2016 Complex Numbers. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum CNQRCodeCorrectionLevel: String
+enum CNLQRCodeCorrectionLevel: String
 {
     case percent7 = "L"
     case percent15 = "M"
@@ -16,9 +16,9 @@ enum CNQRCodeCorrectionLevel: String
     case percent30 = "H"
 }
 
-struct CNQRCodeGenerator {
+struct CNLQRCodeGenerator {
     
-    static func generateQRForString(_ qrString: String, width: CGFloat = 200, correctionLevel: CNQRCodeCorrectionLevel = .percent25) -> UIImage? {
+    static func generateQRForString(_ qrString: String, width: CGFloat = 200, correctionLevel: CNLQRCodeCorrectionLevel = .percent25) -> UIImage? {
         if let stringData = qrString.data(using: String.Encoding.utf8), let qrFilter = CIFilter(name:"CIQRCodeGenerator") {
             qrFilter.setValue(stringData, forKey: "inputMessage")
             qrFilter.setValue(correctionLevel.rawValue, forKey: "inputCorrectionLevel")
