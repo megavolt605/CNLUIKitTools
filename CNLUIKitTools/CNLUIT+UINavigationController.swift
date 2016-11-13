@@ -23,33 +23,49 @@ public extension UINavigationController {
         }
         
         if let flowView = flowView, let baseView = baseView {
-            let frame = flowView.convert(flowView.bounds, to: baseView) // cell.frame
+            let frame = flowView.convert(flowView.bounds, to: baseView)
             
             let imageView = UIImageView(frame: frame)
             imageView.image = flowImage ?? flowView.snapshot()
             baseView.addSubview(imageView)
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut,
-                           animations: {
-                            imageView.layer.transform = CATransform3DMakeScale(2.0, 2.0, 1.0)
-                            imageView.alpha = 0.1
-                            imageView.center = baseView.bounds.center
-            },
-                           completion: { completed in
-                            imageView.removeFromSuperview()
-                            /*
-                             UIView.beginAnimations("Showinfo", context: nil)
-                             UIView.setAnimationCurve(UIViewAnimationCurve.EaseInOut)
-                             UIView.setAnimationDuration(0.75)
-                             parentViewController?.navigationController?.pushViewController(viewController, animated: false)
-                             UIView.setAnimationTransition(UIViewAnimationTransition.CurlUp, forView: parentViewController!.navigationController!.view, cache: false)
-                             UIView.commitAnimations()
-                             */
-                            transition()
-            }
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0.0,
+                options: UIViewAnimationOptions.curveEaseOut,
+                animations: {
+                    imageView.layer.transform = CATransform3DMakeScale(2.0, 2.0, 1.0)
+                    imageView.alpha = 0.1
+                    imageView.center = baseView.bounds.center
+                },
+                completion: { completed in
+                    imageView.removeFromSuperview()
+                    transition()
+                }
             )
         } else {
             transition()
         }
         
     }
+
+    func pushViewController(viewController: UIViewController, duration: CFTimeInterval = 0.2, timingFunction: String = kCAMediaTimingFunctionLinear, type: String = kCATransitionPush, subtype: String = kCATransitionFromRight) {
+        let transition = CATransition()
+        transition.duration = duration
+        transition.timingFunction = CAMediaTimingFunction(name: timingFunction)
+        transition.type = type
+        transition.subtype = subtype
+        navigationController?.view.layer.add(transition, forKey: nil)
+        navigationController?.pushViewController(viewController, animated: false)
+    }
+    
+    func popViewController(duration: CFTimeInterval = 0.2, timingFunction: String = kCAMediaTimingFunctionLinear, type: String = kCATransitionPush, subtype: String = kCATransitionFromRight) {
+        let transition = CATransition()
+        transition.duration = duration
+        transition.timingFunction = CAMediaTimingFunction(name: timingFunction)
+        transition.type = type
+        transition.subtype = subtype
+        navigationController?.view.layer.add(transition, forKey: nil)
+        let _ = navigationController?.popViewController(animated: false)
+    }
+
 }

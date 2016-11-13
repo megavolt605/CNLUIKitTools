@@ -24,6 +24,7 @@
 		781135971DD78864000D94CD /* CNLCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781135961DD78864000D94CD /* CNLCodeScanner.swift */; };
 		7811359A1DD7907F000D94CD /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 781135981DD7907F000D94CD /* README.md */; };
 		7811359B1DD7907F000D94CD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 781135991DD7907F000D94CD /* LICENSE */; };
+		7854EB8C1DD8D763005F024E /* CNLUIKitTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7854EB8B1DD8D763005F024E /* CNLUIKitTools.swift */; };
 		949713A53EA1E0C433447949 /* Pods_CNLUIKitTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F00A2C1238F4A5897A91C6 /* Pods_CNLUIKitTools.framework */; };
 		D67F79E35D5D9B970171DA14 /* Pods_CNUIKitTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CBEAD0BBAA5E36C753658C /* Pods_CNUIKitTools.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		781135961DD78864000D94CD /* CNLCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLCodeScanner.swift; sourceTree = "<group>"; };
 		781135981DD7907F000D94CD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		781135991DD7907F000D94CD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		7854EB8B1DD8D763005F024E /* CNLUIKitTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLUIKitTools.swift; sourceTree = "<group>"; };
 		90CBEAD0BBAA5E36C753658C /* Pods_CNUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CNUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F00A2C1238F4A5897A91C6 /* Pods_CNLUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CNLUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED479F79E4350344F2B0A809 /* Pods-CNUIKitTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNUIKitTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CNUIKitTools/Pods-CNUIKitTools.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				781135921DD78692000D94CD /* CNLSecuredTextEdit.swift */,
 				781135941DD78773000D94CD /* CNLTopAlignedLabel.swift */,
 				781135961DD78864000D94CD /* CNLCodeScanner.swift */,
+				7854EB8B1DD8D763005F024E /* CNLUIKitTools.swift */,
 				780426F71DD60CE900878F72 /* Extensions */,
 			);
 			path = CNLUIKitTools;
@@ -268,6 +271,7 @@
 			files = (
 				780426FF1DD60D8800878F72 /* CNLUIT+UIView.swift in Sources */,
 				7804270B1DD60EC800878F72 /* CNLUIT+UINavigationController.swift in Sources */,
+				7854EB8C1DD8D763005F024E /* CNLUIKitTools.swift in Sources */,
 				780427091DD60EA200878F72 /* CNLUIT+UINavigationBar.swift in Sources */,
 				780427071DD60E7800878F72 /* CNLUIT+UITableView.swift in Sources */,
 				781135971DD78864000D94CD /* CNLCodeScanner.swift in Sources */,
