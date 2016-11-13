@@ -48,7 +48,7 @@ public extension UINavigationController {
         
     }
 
-    func pushViewController(viewController: UIViewController, duration: CFTimeInterval = 0.2, timingFunction: String = kCAMediaTimingFunctionLinear, type: String = kCATransitionPush, subtype: String = kCATransitionFromRight) {
+    public func pushViewController(viewController: UIViewController, duration: CFTimeInterval = 0.2, timingFunction: String = kCAMediaTimingFunctionLinear, type: String = kCATransitionPush, subtype: String = kCATransitionFromRight) {
         let transition = CATransition()
         transition.duration = duration
         transition.timingFunction = CAMediaTimingFunction(name: timingFunction)
@@ -58,7 +58,7 @@ public extension UINavigationController {
         navigationController?.pushViewController(viewController, animated: false)
     }
     
-    func popViewController(duration: CFTimeInterval = 0.2, timingFunction: String = kCAMediaTimingFunctionLinear, type: String = kCATransitionPush, subtype: String = kCATransitionFromRight) {
+    public func popViewController(duration: CFTimeInterval = 0.2, timingFunction: String = kCAMediaTimingFunctionLinear, type: String = kCATransitionPush, subtype: String = kCATransitionFromRight) {
         let transition = CATransition()
         transition.duration = duration
         transition.timingFunction = CAMediaTimingFunction(name: timingFunction)
