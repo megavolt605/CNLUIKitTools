@@ -124,5 +124,28 @@ public extension UIView {
     public func stopQuiveringAnimation() {
         layer.removeAnimation(forKey: "quivering")
     }
+
+    public func startBounceAnimation() {
+        let bounceAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
+        bounceAnimation.values = [0.05, 1.3, 0.9, 1.0]
+        
+        bounceAnimation.duration = 0.6
+        var timingFunctions: [CAMediaTimingFunction] = []
+        if let values = bounceAnimation.values {
+            for _ in 0..<values.count {
+                timingFunctions.append(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
+            }
+        }
+        bounceAnimation.timingFunctions = timingFunctions
+        bounceAnimation.isRemovedOnCompletion = false
+        
+        layer.add(bounceAnimation, forKey: "bounce")
+    }
+    
+    
+    public func stopBounceAnimation() {
+        layer.removeAnimation(forKey: "bounce")
+    }
+    
     
 }
