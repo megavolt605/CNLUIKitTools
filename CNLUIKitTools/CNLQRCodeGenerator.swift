@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Amount of excess information
 enum CNLQRCodeCorrectionLevel: String
 {
     case percent7 = "L"
@@ -16,14 +17,23 @@ enum CNLQRCodeCorrectionLevel: String
     case percent30 = "H"
 }
 
+/// Class for generation QR code
 struct CNLQRCodeGenerator {
     
-    static func generateQRForString(_ qrString: String, width: CGFloat = 200, correctionLevel: CNLQRCodeCorrectionLevel = .percent25) -> UIImage? {
+
+    ///  Generates UIImage with QR code of the string with specified size and correction level
+    ///
+    /// - Parameters:
+    ///   - qrString: Source string. Must have UTF8 representation
+    ///   - size: Width and height of generated image
+    ///   - correctionLevel: Amount of excess information
+    /// - Returns: UIImage with QR code
+    static func generate(forString qrString: String, withSize size: CGFloat = 200.0, correctionLevel: CNLQRCodeCorrectionLevel = .percent25) -> UIImage? {
         if let stringData = qrString.data(using: String.Encoding.utf8), let qrFilter = CIFilter(name:"CIQRCodeGenerator") {
             qrFilter.setValue(stringData, forKey: "inputMessage")
             qrFilter.setValue(correctionLevel.rawValue, forKey: "inputCorrectionLevel")
             guard let image = qrFilter.outputImage else { return nil }
-            let scale = width / image.extent.width
+            let scale = size / image.extent.width
             let cgImage = CIContext(options: nil).createCGImage(image, from: image.extent)
             UIGraphicsBeginImageContext(CGSize(
                 width: image.extent.size.width * scale,
