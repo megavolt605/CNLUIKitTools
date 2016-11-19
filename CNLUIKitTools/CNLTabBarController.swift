@@ -8,14 +8,14 @@
 
 import UIKit
 
-public class CNLTabBarController: UITabBarController, UITabBarControllerDelegate {
+open class CNLTabBarController: UITabBarController, UITabBarControllerDelegate {
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         delegate = self
     }
     
-    public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+    open func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         let toView = viewController.view
         guard let tabViewControllers = tabBarController.viewControllers,
             let fromView = tabBarController.selectedViewController?.view,
