@@ -104,13 +104,13 @@
 		780426EB1DD60AE400878F72 /* CNLUIKitTools */ = {
 			isa = PBXGroup;
 			children = (
+				78124F611DE0847600F342B8 /* CNLTabBarController.swift */,
 				781135901DD7860A000D94CD /* CNLQRCodeGenerator.swift */,
 				781135921DD78692000D94CD /* CNLSecuredTextEdit.swift */,
 				781135941DD78773000D94CD /* CNLTopAlignedLabel.swift */,
 				781135961DD78864000D94CD /* CNLCodeScanner.swift */,
 				7854EB8B1DD8D763005F024E /* CNLUIKitTools.swift */,
 				780426F71DD60CE900878F72 /* Extensions */,
-				78124F611DE0847600F342B8 /* CNLTabBarController.swift */,
 			);
 			path = CNLUIKitTools;
 			sourceTree = "<group>";
