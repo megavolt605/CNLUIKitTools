@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/igor/src/CNLUIKitTools/CNLUIKitTools.xcodeproj">
+      location = "group:CNLUIKitTools.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:CNLUIKitTools.xcodeproj">
    </FileRef>
 </Workspace>
