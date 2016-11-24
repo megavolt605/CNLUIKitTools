@@ -66,6 +66,9 @@ public class CNLCheckBox: UIView {
     }
     private var _state: CNLCheckBoxState = .empty
     
+    /// Callback when the state was changed
+    public var stateWasChanged: ((_ toState: CNLCheckBoxState) -> Void)?
+    
     /// State change animation duration
     public var animationDuration: Double = 0.2
     
@@ -125,6 +128,7 @@ public class CNLCheckBox: UIView {
             startScaleBorderLayerAnimaiton(animated: animated)
 
             addStateSublayers(animated: animated)
+            stateWasChanged?(_state)
         }
     }
     
