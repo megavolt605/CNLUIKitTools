@@ -10,21 +10,30 @@ import UIKit
 
 import CNLFoundationTools
 
+/// State of the check box
+///
+/// - empty: not checked
+/// - tick: checked with tick
+/// - cross: checked with cross
 public enum CNLCheckBoxState {
     case empty, tick, cross
 }
 
+/// Check box with set of states (empty, tick, cross) with simple animations
 public class CNLCheckBox: UIView {
     
+    /// Line width for state icons
     public var lineWidth: [CNLCheckBoxState: CGFloat] = [.empty: 2.0, .tick: 4.0, .cross: 4.0]
     private var currentLineWidth: CGFloat { return lineWidth[state] ?? 0.0 }
     
+    /// Line color for state icons
     public var lineColor: [CNLCheckBoxState: UIColor] = [.empty: UIColor.white, .tick: UIColor.white, .cross: UIColor.white]
     private var currentLineColor: UIColor { return lineColor[state] ?? UIColor.white }
     
-    public var fillColor: UIColor = UIColor.white
-    //private var currentFillColor: UIColor { return fillColor[state] ?? UIColor.gray }
+    /// Fill color of inner circle for empty state
+    public var emptyFillColor: UIColor = UIColor.white
 
+    /// Border width for empty state
     public var borderLineWidth: [CNLCheckBoxState: CGFloat] = [.empty: 2.0, .tick: 0.0, .cross: 0.0] {
         didSet {
             updateLayers()
@@ -32,38 +41,44 @@ public class CNLCheckBox: UIView {
     }
     private var currentBorderLineWidth: CGFloat { return borderLineWidth[state] ?? 0.0 }
     
-    public var borderColor: [CNLCheckBoxState: UIColor] = [.empty: UIColor.black, .tick: UIColor.green, .cross: UIColor.red] {
+    /// Border color for empty state, fill color for others
+    public var fillColor: [CNLCheckBoxState: UIColor] = [.empty: UIColor.black, .tick: UIColor.green, .cross: UIColor.red] {
         didSet {
             updateLayers()
         }
     }
-    private var currentBorderColor: UIColor { return borderColor[state] ?? UIColor.white }
+    private var currentFillColor: UIColor { return fillColor[state] ?? UIColor.white }
     
+    /// Sequence for automatic state change, default is [.empty, .tick]
     public var stateSequence: [CNLCheckBoxState] = [.empty, .tick] {
         didSet {
             stateSequenceIndex = 0
             setState(stateSequence[stateSequenceIndex], animated: false)
         }
     }
-    public var stateSequenceIndex: Int = 0
+    private var stateSequenceIndex: Int = 0
     
-    private var _state: CNLCheckBoxState = .empty
+
+    /// Current check box state. When changed, state will change without animation
     public var state: CNLCheckBoxState {
         get { return _state }
         set { setState(newValue, animated: false) }
     }
+    private var _state: CNLCheckBoxState = .empty
     
-    //public var style: [CNLCheckBoxState: CNLCheckBoxStyle] = [.unchecked: .empty, .checked: .tick]
+    /// State change animation duration
+    public var animationDuration: Double = 0.2
     
-    public var animationDuration: Double = 0.5
-    
-    public var borderCircle: CAShapeLayer!
-    public var centerCircle: CAShapeLayer!
+    private var borderCircle: CAShapeLayer!
+    private var centerCircle: CAShapeLayer!
     
     private var tapGestureRecognizer: UITapGestureRecognizer!
     private var sideWidth: CGFloat = 0.0
     private var doublePi: CGFloat = CGFloat(M_PI) * 2.0
     
+    /// Init check box within a frame
+    ///
+    /// - Parameter frame: frame (CGRect)
     override required public init(frame: CGRect) {
         super.init(frame: frame)
         initializeUI()
@@ -74,14 +89,27 @@ public class CNLCheckBox: UIView {
         initializeUI()
     }
     
-    func initializeUI() {
+    private func initializeUI() {
         sideWidth = min(frame.size.width, frame.size.height)
         backgroundColor = UIColor.white
-        addSubLayer()
+
+        borderCircle = CAShapeLayer()
+        layer.addSublayer(borderCircle)
+        
+        centerCircle = CAShapeLayer()
+        layer.addSublayer(centerCircle)
+        
+        updateLayers()
+        
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         addGestureRecognizer(tapGestureRecognizer)
     }
     
+    /// Sets new state to the check box. Animatable.
+    ///
+    /// - Parameters:
+    ///   - state: new state
+    ///   - animated: animation flag
     public func setState(_ state: CNLCheckBoxState, animated: Bool) {
         if (self.state != state) || !animated {
             _state = state
@@ -96,21 +124,11 @@ public class CNLCheckBox: UIView {
             startBorderLayerAnimation(animated: animated)
             startScaleBorderLayerAnimaiton(animated: animated)
 
-            addSublayers(animated: animated)
+            addStateSublayers(animated: animated)
         }
     }
     
-    func addSubLayer() {
-        borderCircle = CAShapeLayer()
-        layer.addSublayer(borderCircle)
-        
-        centerCircle = CAShapeLayer()
-        layer.addSublayer(centerCircle)
-        
-        updateLayers()
-    }
-    
-    public func updateLayers() {
+    private func updateLayers() {
         let centerPoint = CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0)
         
         let borderCirclePath = UIBezierPath(
@@ -121,7 +139,7 @@ public class CNLCheckBox: UIView {
             clockwise: true
         )
         borderCircle.path = borderCirclePath.cgPath
-        borderCircle.fillColor = currentBorderColor.cgColor
+        borderCircle.fillColor = currentFillColor.cgColor
         
         let centerCirclePath = UIBezierPath(
             arcCenter: centerPoint,
@@ -131,10 +149,10 @@ public class CNLCheckBox: UIView {
             clockwise: true
         )
         centerCircle.path = centerCirclePath.cgPath
-        centerCircle.fillColor = fillColor.cgColor
+        centerCircle.fillColor = emptyFillColor.cgColor
     }
     
-    @objc public func tapGestureRecognizerAction() {
+    @objc private func tapGestureRecognizerAction() {
         if isUserInteractionEnabled {
             if stateSequenceIndex == (stateSequence.count - 1) {
                 stateSequenceIndex = 0
@@ -145,7 +163,7 @@ public class CNLCheckBox: UIView {
         }
     }
     
-    func startBorderLayerAnimation(animated: Bool) {
+    private func startBorderLayerAnimation(animated: Bool) {
         if state == .empty {
             let finalPath = UIBezierPath(
                 arcCenter: CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0),
@@ -202,23 +220,23 @@ public class CNLCheckBox: UIView {
         
         if animated {
             with(CABasicAnimation(keyPath: "fillColor")) {
-                $0.toValue = currentBorderColor.cgColor
+                $0.toValue = currentFillColor.cgColor
                 $0.duration = animationDuration / 3.0 * 2.0
                 $0.isRemovedOnCompletion = false
                 $0.fillMode = kCAFillModeForwards
                 borderCircle.add($0, forKey: nil)
             }
         } else {
-            borderCircle.fillColor = currentBorderColor.cgColor
+            borderCircle.fillColor = currentFillColor.cgColor
         }
     }
     
-    func startScaleBorderLayerAnimaiton(animated: Bool) {
+    private func startScaleBorderLayerAnimaiton(animated: Bool) {
         
         var toValue = CATransform3DIdentity
         toValue = CATransform3DTranslate(toValue, bounds.size.width / 2.0, bounds.size.height / 2.0, 0.0)
         toValue = CATransform3DScale(toValue, 1.0, 1.0, 1.0)
-        toValue = CATransform3DTranslate(toValue, -bounds.size.width/2, -bounds.size.height / 2.0, 0.0)
+        toValue = CATransform3DTranslate(toValue, -bounds.size.width / 2.0, -bounds.size.height / 2.0, 0.0)
         
         if animated {
             var byValue = CATransform3DIdentity
@@ -253,7 +271,7 @@ public class CNLCheckBox: UIView {
         }
     }
     
-    func addSublayers(animated: Bool) {
+    private func addStateSublayers(animated: Bool) {
         switch state {
         case .tick:
             let unitLength = sideWidth / 30.0
