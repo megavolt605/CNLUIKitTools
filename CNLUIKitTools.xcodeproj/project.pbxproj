@@ -28,6 +28,7 @@
 		7865AF6B1DE771D000102671 /* CNLCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7865AF6A1DE771D000102671 /* CNLCheckBox.swift */; };
 		787B315B1DE7A66B00A30133 /* CNLDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787B315A1DE7A66B00A30133 /* CNLDatePickerView.swift */; };
 		787B315D1DE7A69300A30133 /* CNLTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787B315C1DE7A69300A30133 /* CNLTimerView.swift */; };
+		787B31601DE7A96400A30133 /* CNLRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787B315F1DE7A96400A30133 /* CNLRatingView.swift */; };
 		949713A53EA1E0C433447949 /* Pods_CNLUIKitTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F00A2C1238F4A5897A91C6 /* Pods_CNLUIKitTools.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		7865AF6A1DE771D000102671 /* CNLCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLCheckBox.swift; sourceTree = "<group>"; };
 		787B315A1DE7A66B00A30133 /* CNLDatePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLDatePickerView.swift; sourceTree = "<group>"; };
 		787B315C1DE7A69300A30133 /* CNLTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLTimerView.swift; sourceTree = "<group>"; };
+		787B315F1DE7A96400A30133 /* CNLRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLRatingView.swift; sourceTree = "<group>"; };
 		90CBEAD0BBAA5E36C753658C /* Pods_CNUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CNUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5F00A2C1238F4A5897A91C6 /* Pods_CNLUIKitTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CNLUIKitTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED479F79E4350344F2B0A809 /* Pods-CNUIKitTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNUIKitTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CNUIKitTools/Pods-CNUIKitTools.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				7865AF6A1DE771D000102671 /* CNLCheckBox.swift */,
 				787B315A1DE7A66B00A30133 /* CNLDatePickerView.swift */,
 				787B315C1DE7A69300A30133 /* CNLTimerView.swift */,
+				787B315F1DE7A96400A30133 /* CNLRatingView.swift */,
 				7854EB8B1DD8D763005F024E /* CNLUIKitTools.swift */,
 				780426F71DD60CE900878F72 /* Extensions */,
 			);
@@ -299,6 +302,7 @@
 				7854EB8C1DD8D763005F024E /* CNLUIKitTools.swift in Sources */,
 				780427091DD60EA200878F72 /* CNLUIT+UINavigationBar.swift in Sources */,
 				780427071DD60E7800878F72 /* CNLUIT+UITableView.swift in Sources */,
+				787B31601DE7A96400A30133 /* CNLRatingView.swift in Sources */,
 				781135971DD78864000D94CD /* CNLCodeScanner.swift in Sources */,
 				780426FD1DD60D6900878F72 /* CNLUIT+CALayer.swift in Sources */,
 				781135931DD78692000D94CD /* CNLSecuredTextEdit.swift in Sources */,
