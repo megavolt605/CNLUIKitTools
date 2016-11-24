@@ -20,8 +20,20 @@ public class CNLRatingView: UIView {
     public var starSize: CGFloat = 20.0
     public var starIdent: CGFloat = 10.0
     
-    public var starImage: UIImage?
-    public var starSelectedImage: UIImage?
+    public var starImage: UIImage? {
+        didSet {
+            starImageViews.forEach {
+                $0.image = starImage
+            }
+        }
+    }
+    public var starSelectedImage: UIImage? {
+        didSet {
+            starSelectedImageViews.forEach {
+                $0.image = starSelectedImage
+            }
+        }
+    }
     
     public var starImageViews: [UIImageView] = []
     public var starSelectedImageViews: [UIImageView] = []
@@ -74,21 +86,13 @@ public class CNLRatingView: UIView {
     }
     
     func internalInit() {
-        
-        let podBundle = Bundle(for: self.classForCoder)
-        starImage = UIImage(named: "Star", in: podBundle, compatibleWith: nil)
-        starSelectedImage = UIImage(named: "Star Filled", in: podBundle, compatibleWith: nil)
-        
         for _ in 0..<starsCount {
-            
             let starImageView = UIImageView()
-            starImageView.image = starImage
             starImageView.contentMode = .scaleAspectFill
             starImageViews.append(starImageView)
             addSubview(starImageView)
             
             let starSelectedImageView = UIImageView()
-            starSelectedImageView.image = starSelectedImage
             starSelectedImageView.contentMode = .scaleAspectFill
             starSelectedImageView.alpha = 0.0
             starSelectedImageViews.append(starSelectedImageView)
