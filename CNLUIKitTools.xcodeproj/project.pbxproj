@@ -31,6 +31,19 @@
 		949713A53EA1E0C433447949 /* Pods_CNLUIKitTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F00A2C1238F4A5897A91C6 /* Pods_CNLUIKitTools.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		787B315E1DE7A83500A30133 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.map";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
 		4421681133494D690E79B0F2 /* Pods-CNLUIKitTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNLUIKitTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-CNLUIKitTools/Pods-CNLUIKitTools.release.xcconfig"; sourceTree = "<group>"; };
 		4EA3D40EA26D708902F4320C /* Pods-CNUIKitTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CNUIKitTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-CNUIKitTools/Pods-CNUIKitTools.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +201,7 @@
 				3D8CFEE5EB55B43B8805251F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
+				787B315E1DE7A83500A30133 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
