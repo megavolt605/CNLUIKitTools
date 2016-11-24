@@ -42,7 +42,7 @@ public class CNLCheckBox: UIView {
     public var stateSequence: [CNLCheckBoxState] = [.empty, .tick] {
         didSet {
             stateSequenceIndex = 0
-            setState(stateSequence[stateSequenceIndex] ?? .empty, animated: false)
+            setState(stateSequence[stateSequenceIndex], animated: false)
         }
     }
     public var stateSequenceIndex: Int = 0
@@ -279,7 +279,7 @@ public class CNLCheckBox: UIView {
             }
             
             if animated {
-                let drawTickAnimation = with(CABasicAnimation(keyPath: "strokeEnd")) {
+                with(CABasicAnimation(keyPath: "strokeEnd")) {
                     $0.toValue = 1.0
                     $0.duration = animationDuration
                     $0.isRemovedOnCompletion = false
