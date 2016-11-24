@@ -25,15 +25,16 @@ open class CNLTabBarController: UITabBarController, UITabBarControllerDelegate {
             fromView != toView
             else { return false }
         
-        UIView.transition(from: fromView,
-                          to:toView!,
-                          duration:0.3,
-                          options: (toIndex > fromIndex) ? .transitionFlipFromLeft : .transitionFlipFromRight,
-                          completion: { finished in
-                            if finished {
-                                tabBarController.selectedIndex = toIndex
-                            }
-        }
+        UIView.transition(
+            from: fromView,
+            to:toView!,
+            duration:0.3,
+            options: (toIndex > fromIndex) ? .transitionFlipFromLeft : .transitionFlipFromRight,
+            completion: { finished in
+                if finished {
+                    tabBarController.selectedIndex = toIndex
+                }
+            }
         )
         return true
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Secured UITextField (without popup menu & keyboard shortcuts for copy, paste, share and some other insecure actions)
 open class CNLSecuredTextField: UITextField {
     
     open var secured = true
