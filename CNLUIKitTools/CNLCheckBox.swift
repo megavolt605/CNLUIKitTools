@@ -56,7 +56,7 @@ public class CNLCheckBox: UIView {
             setState(stateSequence[stateSequenceIndex], animated: false)
         }
     }
-    private var stateSequenceIndex: Int = 0
+    public var stateSequenceIndex: Int = 0
     
 
     /// Current check box state. When changed, state will change without animation
@@ -106,6 +106,11 @@ public class CNLCheckBox: UIView {
         
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureRecognizerAction))
         addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    public func removeAllAnimations() {
+        borderCircle.removeAllAnimations()
+        centerCircle.removeAllAnimations()
     }
     
     /// Sets new state to the check box. Animatable.
