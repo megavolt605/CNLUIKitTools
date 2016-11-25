@@ -53,7 +53,7 @@ public class CNLCheckBox: UIView {
     public var stateSequence: [CNLCheckBoxState] = [.empty, .tick] {
         didSet {
             stateSequenceIndex = 0
-            setState(stateSequence[stateSequenceIndex], animated: false)
+            //setState(stateSequence[stateSequenceIndex], animated: false)
         }
     }
     public var stateSequenceIndex: Int = 0
