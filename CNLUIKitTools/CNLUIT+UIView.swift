@@ -8,6 +8,8 @@
 
 import UIKit
 
+import CNLFoundationTools
+
 public extension UIView {
     
     public func recursiveDescription(prefix: String = "") -> String {
@@ -82,17 +84,20 @@ public extension UIView {
     }
     
     public func addParallax(_ amount: Double = 100.0, keyPathX: String = "center.x", keyPathY: String = "center.y") {
-        let horizontal = UIInterpolatingMotionEffect(keyPath: keyPathX, type: .tiltAlongHorizontalAxis)
-        horizontal.minimumRelativeValue = -amount
-        horizontal.maximumRelativeValue = amount
+        let horizontal = UIInterpolatingMotionEffect(keyPath: keyPathX, type: .tiltAlongHorizontalAxis) --> {
+            $0.minimumRelativeValue = -amount
+            $0.maximumRelativeValue = amount
+        }
         
-        let vertical = UIInterpolatingMotionEffect(keyPath: keyPathY, type: .tiltAlongVerticalAxis)
-        vertical.minimumRelativeValue = -amount
-        vertical.maximumRelativeValue = amount
-        
-        let group = UIMotionEffectGroup()
-        group.motionEffects = [horizontal, vertical]
-        addMotionEffect(group)
+        let vertical = UIInterpolatingMotionEffect(keyPath: keyPathY, type: .tiltAlongVerticalAxis) --> {
+            $0.minimumRelativeValue = -amount
+            $0.maximumRelativeValue = amount
+        }
+
+        UIMotionEffectGroup() --> {
+            $0.motionEffects = [horizontal, vertical]
+            self.addMotionEffect($0)
+        }
     }
     
     public var parentViewController: UIViewController? {
@@ -107,39 +112,32 @@ public extension UIView {
     }
     
     public func startQuiveringAnimation() {
-        let quiverAnim = CABasicAnimation(keyPath: "transform.rotation")
         let startAngle: Float = -1.0 *  Float(M_PI) / 180.0
         let stopAngle: Float = -startAngle
-        quiverAnim.fromValue = startAngle
-        quiverAnim.toValue = stopAngle * 3.0
-        quiverAnim.autoreverses = true
-        quiverAnim.duration = 0.15
-        quiverAnim.repeatCount = Float.infinity
-        let r = Int(arc4random() % 100) - 50
-        let timeOffset: CFTimeInterval = Double(r) / 100.0
-        quiverAnim.timeOffset = timeOffset
-        layer.add(quiverAnim, forKey: "quivering")
+        let timeOffset: CFTimeInterval = (Double(arc4random_uniform(100)) - 50.0) / 100.0
+        CABasicAnimation(keyPath: "transform.rotation") --> {
+            $0.fromValue = startAngle
+            $0.toValue = stopAngle * 3.0
+            $0.autoreverses = true
+            $0.duration = 0.15
+            $0.repeatCount = Float.infinity
+            $0.timeOffset = timeOffset
+            layer.add($0, forKey: "quivering")
+        }
     }
     
     public func stopQuiveringAnimation() {
         layer.removeAnimation(forKey: "quivering")
     }
 
-    public func startBounceAnimation() {
-        let bounceAnimation = CAKeyframeAnimation(keyPath: "transform.scale")
-        bounceAnimation.values = [0.05, 1.3, 0.9, 1.0]
-        
-        bounceAnimation.duration = 0.6
-        var timingFunctions: [CAMediaTimingFunction] = []
-        if let values = bounceAnimation.values {
-            for _ in 0..<values.count {
-                timingFunctions.append(CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut))
-            }
+    public func startBounceAnimation(_ values: [Any] = [0.05, 1.3, 0.9, 1.0], duration: CFTimeInterval = 0.6) {
+        CAKeyframeAnimation(keyPath: "transform.scale") --> {
+            $0.values = values
+            $0.duration = duration
+            $0.timingFunctions = values.map { _ in return CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut) }
+            $0.isRemovedOnCompletion = false
+            layer.add($0, forKey: "bounce")
         }
-        bounceAnimation.timingFunctions = timingFunctions
-        bounceAnimation.isRemovedOnCompletion = false
-        
-        layer.add(bounceAnimation, forKey: "bounce")
     }
     
     

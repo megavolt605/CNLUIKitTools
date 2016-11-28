@@ -140,20 +140,20 @@ open class CNLTimerView: UIView {
     
     /// Creates objects for the view (label, progress layer)
     open func createObjects() {
-        timeLabel = UILabel()
-        with (timeLabel!) {
+        timeLabel = UILabel() --> {
             $0.textAlignment = .center
             $0.text = timeLabelInitialText
-            addSubview($0)
+            self.addSubview($0)
+            return $0
         }
         
-        with(progressLayer) {
+        progressLayer --> {
             $0.lineWidth = lineWidth
             $0.bounds = bounds
             $0.fillColor = fillColor.cgColor
             $0.strokeColor = strokeColor.cgColor
             $0.lineCap = kCALineCapRound
-            layer.addSublayer($0)
+            self.layer.addSublayer($0)
         }
     }
     

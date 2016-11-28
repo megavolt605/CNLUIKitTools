@@ -8,6 +8,8 @@
 
 import UIKit
 
+import CNLFoundationTools
+
 public func splashImageName(forOrientation orientation: UIInterfaceOrientation) -> String? {
     var viewSize = UIScreen.main.bounds.size
     var viewOrientation = "Portrait"
@@ -61,7 +63,6 @@ public func animationMoving(_ views: [UIView], distance: CGPoint, duration: Doub
         options: UIViewAnimationOptions.curveEaseOut,
         animations: {
             for view in views {
-                //let c = view.center
                 view.alpha = 1.0
                 view.center = orgCenter[view]!
             }
@@ -123,4 +124,3 @@ public func gradientWithColors(_ colors: [UIColor], locations: [CGFloat]) -> CGG
     let cgcolors = colors.map { $0.cgColor as AnyObject! } as NSArray
     return CGGradient(colorsSpace: colorSpace, colors: cgcolors, locations: locations)
 }
-

@@ -6,6 +6,7 @@ target 'CNLUIKitTools' do
   use_frameworks!
 
   # Pods for CNLUIKitTools
-  pod 'CNLFoundationTools'
+  pod 'CNLFoundationTools', :path => '~/src/CNLFoundationTools'
+  #pod 'CNLFoundationTools'
   
 end

@@ -92,7 +92,7 @@ public class CNLRatingView: UIView {
             starImageViews.append(starImageView)
             addSubview(starImageView)
             
-            with(UIImageView()) {
+            UIImageView() --> {
                 $0.contentMode = .scaleAspectFill
                 $0.alpha = 0.0
                 self.starSelectedImageViews.append($0)

@@ -228,7 +228,7 @@ public class CNLCheckBox: UIView {
                 clockwise: true
             ).cgPath*/
             if animated {
-                with(CABasicAnimation(keyPath: "path")) {
+                CABasicAnimation(keyPath: "path") --> {
                     $0.fromValue = UIBezierPath(
                         arcCenter: CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0),
                         radius: 0.1,
@@ -254,7 +254,7 @@ public class CNLCheckBox: UIView {
                 clockwise: true
             ).cgPath
             if animated {
-                with(CABasicAnimation(keyPath: "path")) {
+                CABasicAnimation(keyPath: "path") --> {
                     $0.fromValue = UIBezierPath(
                         arcCenter: CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0),
                         radius: sideWidth / 2.0 - currentBorderLineWidth,
@@ -274,7 +274,7 @@ public class CNLCheckBox: UIView {
         }
         
         if animated {
-            with(CABasicAnimation(keyPath: "fillColor")) {
+            CABasicAnimation(keyPath: "fillColor") --> {
                 $0.toValue = currentFillColor.cgColor
                 $0.duration = animationDuration / 3.0 * 2.0
                 $0.isRemovedOnCompletion = false
@@ -299,14 +299,14 @@ public class CNLCheckBox: UIView {
             byValue = CATransform3DScale(byValue, 0.8, 0.8, 1.0)
             byValue = CATransform3DTranslate(byValue, -bounds.size.width / 2.0, -bounds.size.height / 2.0, 0.0)
             
-            let firstScaleAnimation = with(CABasicAnimation(keyPath: "transform")) {
+            let firstScaleAnimation = CABasicAnimation(keyPath: "transform") --> {
                 $0.toValue = NSValue(caTransform3D: byValue)
                 $0.duration = animationDuration / 2.0
                 $0.isRemovedOnCompletion = false
                 $0.fillMode = kCAFillModeForwards
             }
             
-            let secondScaleAnimation = with(CABasicAnimation(keyPath: "transform")) {
+            let secondScaleAnimation = CABasicAnimation(keyPath: "transform") --> {
                 $0.toValue = NSValue(caTransform3D: toValue)
                 $0.beginTime = animationDuration / 2.0
                 $0.duration = animationDuration / 2.0
@@ -314,7 +314,7 @@ public class CNLCheckBox: UIView {
                 $0.fillMode = kCAFillModeForwards
             }
             
-            let scaleAnimationGroup = with(CAAnimationGroup()) {
+            let scaleAnimationGroup = CAAnimationGroup() --> {
                 $0.animations = [firstScaleAnimation, secondScaleAnimation]
                 $0.duration = animationDuration
             }
@@ -334,13 +334,13 @@ public class CNLCheckBox: UIView {
             let transitionPoint = CGPoint(x: unitLength * 13.0, y: unitLength * 20.0)
             let endPoint = CGPoint(x: unitLength * 22.0, y: unitLength * 10.0)
             
-            let tickPath = with(UIBezierPath()) {
+            let tickPath = UIBezierPath() --> {
                 $0.move(to: beginPoint)
                 $0.addLine(to: transitionPoint)
                 $0.addLine(to: endPoint)
             }
             
-            let tickLayer = with(CAShapeLayer()) {
+            let tickLayer = CAShapeLayer() --> {
                 $0.path = tickPath.cgPath
                 $0.lineWidth = currentLineWidth
                 $0.lineCap = kCALineCapRound
@@ -352,7 +352,7 @@ public class CNLCheckBox: UIView {
             }
             
             if animated {
-                with(CABasicAnimation(keyPath: "strokeEnd")) {
+                CABasicAnimation(keyPath: "strokeEnd") --> {
                     $0.toValue = 1.0
                     $0.duration = animationDuration
                     $0.isRemovedOnCompletion = false
@@ -370,13 +370,13 @@ public class CNLCheckBox: UIView {
             let point_BottomLeft = CGPoint(x: datumPoint, y: 2.0 * datumPoint)
             let point_BottomRight = CGPoint(x: 2.0 * datumPoint, y: 2.0 * datumPoint)
             
-            let tickLayer = with(CAShapeLayer()) {
-                $0.path = with(UIBezierPath()) {
+            let tickLayer = CAShapeLayer() --> {
+                $0.path = (UIBezierPath() --> {
                     $0.move(to: point_TopLeft)
                     $0.addLine(to: point_BottomRight)
                     $0.move(to: point_TopRight)
                     $0.addLine(to: point_BottomLeft)
-                }.cgPath
+                }).cgPath
                 $0.lineWidth = currentLineWidth
                 $0.lineCap = kCALineCapRound
                 $0.lineJoin = kCALineJoinRound
@@ -387,7 +387,7 @@ public class CNLCheckBox: UIView {
             }
             
             if animated {
-                with(CABasicAnimation(keyPath: "strokeEnd")) {
+                CABasicAnimation(keyPath: "strokeEnd") --> {
                     $0.toValue = 1.0
                     $0.duration = animationDuration
                     $0.isRemovedOnCompletion = false
