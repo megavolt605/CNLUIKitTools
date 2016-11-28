@@ -149,7 +149,6 @@ public class CNLCheckBox: UIView {
     
     private var borderPath: UIBezierPath {
         let centerPoint = CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0)
-        let halfSideWidth = sideWidth / 2.0
         let result: UIBezierPath
         switch form {
         case .circle:
@@ -173,7 +172,6 @@ public class CNLCheckBox: UIView {
     
     private var centerPath: UIBezierPath {
         let centerPoint = CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0)
-        let halfSideWidth = sideWidth / 2.0
         let result: UIBezierPath
         switch form {
         case .circle:
