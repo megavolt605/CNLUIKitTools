@@ -1,16 +1,12 @@
 PODS:
-  - CNLFoundationTools (0.0.7)
+  - CNLFoundationTools (0.0.8)
 
 DEPENDENCIES:
-  - CNLFoundationTools (from `~/src/CNLFoundationTools`)
-
-EXTERNAL SOURCES:
-  CNLFoundationTools:
-    :path: ~/src/CNLFoundationTools
+  - CNLFoundationTools
 
 SPEC CHECKSUMS:
-  CNLFoundationTools: ab4d980018ce701d7d70b04f02271ab9d66a6f98
+  CNLFoundationTools: e4fb0da7761825e47bfca9efacf6abe7d2493960
 
-PODFILE CHECKSUM: ca3c25944d48106469020fd252fad74fdc45d767
+PODFILE CHECKSUM: 5ca0eddef8aeea3040a7fbaf3949e01a36324164
 
 COCOAPODS: 1.2.0.beta.1
