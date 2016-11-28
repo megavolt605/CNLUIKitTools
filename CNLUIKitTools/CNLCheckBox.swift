@@ -19,6 +19,10 @@ public enum CNLCheckBoxState {
     case empty, tick, cross
 }
 
+public enum CNLCheckBoxForm {
+    case circle, square
+}
+
 /// Check box with set of states (empty, tick, cross) with simple animations
 public class CNLCheckBox: UIView {
     
@@ -66,14 +70,20 @@ public class CNLCheckBox: UIView {
     }
     private var _state: CNLCheckBoxState = .empty
     
+    private var form: CNLCheckBoxForm = .circle {
+        didSet {
+            updateLayers()
+        }
+    }
+    
     /// Callback when the state was changed
     public var stateWasChanged: ((_ toState: CNLCheckBoxState) -> Void)?
     
     /// State change animation duration
     public var animationDuration: Double = 0.2
     
-    private var borderCircle: CAShapeLayer!
-    private var centerCircle: CAShapeLayer!
+    private var borderShape: CAShapeLayer!
+    private var centerShape: CAShapeLayer!
     
     private var tapGestureRecognizer: UITapGestureRecognizer!
     private var sideWidth: CGFloat = 0.0
@@ -96,11 +106,11 @@ public class CNLCheckBox: UIView {
         sideWidth = min(frame.size.width, frame.size.height)
         backgroundColor = UIColor.white
 
-        borderCircle = CAShapeLayer()
-        layer.addSublayer(borderCircle)
+        borderShape = CAShapeLayer()
+        layer.addSublayer(borderShape)
         
-        centerCircle = CAShapeLayer()
-        layer.addSublayer(centerCircle)
+        centerShape = CAShapeLayer()
+        layer.addSublayer(centerShape)
         
         updateLayers()
         
@@ -109,8 +119,8 @@ public class CNLCheckBox: UIView {
     }
     
     public func removeAllAnimations() {
-        borderCircle.removeAllAnimations()
-        centerCircle.removeAllAnimations()
+        borderShape.removeAllAnimations()
+        centerShape.removeAllAnimations()
     }
     
     /// Sets new state to the check box. Animatable.
@@ -122,7 +132,7 @@ public class CNLCheckBox: UIView {
         if (self.state != state) || !animated {
             _state = state
             
-            if let subLayers = borderCircle.sublayers {
+            if let subLayers = borderShape.sublayers {
                 for subLayer in subLayers {
                     subLayer.removeFromSuperlayer()
                 }
@@ -139,26 +149,48 @@ public class CNLCheckBox: UIView {
     
     private func updateLayers() {
         let centerPoint = CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0)
+        let halfSideWidth = sideWidth / 2.0
+        let borderPath: UIBezierPath
+        switch form {
+        case .circle:
+            borderPath = UIBezierPath(
+                arcCenter: centerPoint,
+                radius: sideWidth / 2.0,
+                startAngle: 0.0,
+                endAngle: doublePi,
+                clockwise: true
+            )
+        case .square:
+            borderPath = UIBezierPath(
+                rect: CGRect(
+                    origin: CGPoint.zero,
+                    size: CGSize(width: halfSideWidth, height: halfSideWidth)
+                )
+            )
+        }
+        borderShape.path = borderPath.cgPath
+        borderShape.fillColor = currentFillColor.cgColor
         
-        let borderCirclePath = UIBezierPath(
-            arcCenter: centerPoint,
-            radius: sideWidth / 2.0,
-            startAngle: 0.0,
-            endAngle: doublePi,
-            clockwise: true
-        )
-        borderCircle.path = borderCirclePath.cgPath
-        borderCircle.fillColor = currentFillColor.cgColor
-        
-        let centerCirclePath = UIBezierPath(
-            arcCenter: centerPoint,
-            radius: sideWidth / 2.0 - currentBorderLineWidth,
-            startAngle: 0.0,
-            endAngle: doublePi,
-            clockwise: true
-        )
-        centerCircle.path = centerCirclePath.cgPath
-        centerCircle.fillColor = emptyFillColor.cgColor
+        let centerPath: UIBezierPath
+        switch form {
+        case .circle:
+            centerPath = UIBezierPath(
+                arcCenter: centerPoint,
+                radius: sideWidth / 2.0 - currentBorderLineWidth,
+                startAngle: 0.0,
+                endAngle: doublePi,
+                clockwise: true
+            )
+        case .square:
+            centerPath = UIBezierPath(
+                rect: CGRect(
+                    origin: CGPoint.zero,
+                    size: CGSize(width: halfSideWidth - currentBorderLineWidth, height: halfSideWidth - currentBorderLineWidth)
+                )
+            )
+        }
+        centerShape.path = centerPath.cgPath
+        centerShape.fillColor = emptyFillColor.cgColor
     }
     
     @objc private func tapGestureRecognizerAction() {
@@ -194,10 +226,10 @@ public class CNLCheckBox: UIView {
                     $0.duration = animationDuration / 3.0 * 2.0
                     $0.isRemovedOnCompletion = false
                     $0.fillMode = kCAFillModeForwards
-                    centerCircle.add($0, forKey: nil)
+                    centerShape.add($0, forKey: nil)
                 }
             } else {
-                centerCircle.path = finalPath
+                centerShape.path = finalPath
             }
         } else {
             let finalPath = UIBezierPath(
@@ -220,10 +252,10 @@ public class CNLCheckBox: UIView {
                     $0.duration = animationDuration / 3.0 * 2.0
                     $0.isRemovedOnCompletion = false
                     $0.fillMode = kCAFillModeForwards
-                    centerCircle.add($0, forKey: nil)
+                    centerShape.add($0, forKey: nil)
                 }
             } else {
-                centerCircle.path = finalPath
+                centerShape.path = finalPath
             }
         }
         
@@ -233,10 +265,10 @@ public class CNLCheckBox: UIView {
                 $0.duration = animationDuration / 3.0 * 2.0
                 $0.isRemovedOnCompletion = false
                 $0.fillMode = kCAFillModeForwards
-                borderCircle.add($0, forKey: nil)
+                borderShape.add($0, forKey: nil)
             }
         } else {
-            borderCircle.fillColor = currentFillColor.cgColor
+            borderShape.fillColor = currentFillColor.cgColor
         }
     }
     
@@ -272,11 +304,11 @@ public class CNLCheckBox: UIView {
                 $0.animations = [firstScaleAnimation, secondScaleAnimation]
                 $0.duration = animationDuration
             }
-            borderCircle.add(scaleAnimationGroup, forKey: nil)
-            centerCircle.add(scaleAnimationGroup, forKey: nil)
+            borderShape.add(scaleAnimationGroup, forKey: nil)
+            centerShape.add(scaleAnimationGroup, forKey: nil)
         } else {
-            borderCircle.transform = toValue
-            centerCircle.transform = toValue
+            borderShape.transform = toValue
+            centerShape.transform = toValue
         }
     }
     
@@ -302,7 +334,7 @@ public class CNLCheckBox: UIView {
                 $0.fillColor = UIColor.clear.cgColor
                 $0.strokeColor = currentLineColor.cgColor
                 $0.strokeEnd = 0.0
-                borderCircle.addSublayer($0)
+                borderShape.addSublayer($0)
             }
             
             if animated {
@@ -337,7 +369,7 @@ public class CNLCheckBox: UIView {
                 $0.fillColor = UIColor.clear.cgColor
                 $0.strokeColor = currentLineColor.cgColor
                 $0.strokeEnd = 0.0
-                borderCircle.addSublayer($0)
+                borderShape.addSublayer($0)
             }
             
             if animated {
