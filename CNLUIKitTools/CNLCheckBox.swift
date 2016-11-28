@@ -70,7 +70,7 @@ public class CNLCheckBox: UIView {
     }
     private var _state: CNLCheckBoxState = .empty
     
-    private var form: CNLCheckBoxForm = .circle {
+    public var form: CNLCheckBoxForm = .circle {
         didSet {
             updateLayers()
         }
