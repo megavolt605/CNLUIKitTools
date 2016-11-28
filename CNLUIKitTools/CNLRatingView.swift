@@ -92,11 +92,12 @@ public class CNLRatingView: UIView {
             starImageViews.append(starImageView)
             addSubview(starImageView)
             
-            let starSelectedImageView = UIImageView()
-            starSelectedImageView.contentMode = .scaleAspectFill
-            starSelectedImageView.alpha = 0.0
-            starSelectedImageViews.append(starSelectedImageView)
-            addSubview(starSelectedImageView)
+            with(UIImageView()) {
+                $0.contentMode = .scaleAspectFill
+                $0.alpha = 0.0
+                self.starSelectedImageViews.append($0)
+                self.addSubview($0)
+            }
         }
         isUserInteractionEnabled = true
         tapGestureRecognizer.addTarget(self, action: #selector(tapGestureDetected(_:)))
