@@ -34,16 +34,16 @@ struct CNLQRCodeGenerator {
             qrFilter.setValue(correctionLevel.rawValue, forKey: "inputCorrectionLevel")
             guard let image = qrFilter.outputImage else { return nil }
             let scale = size / image.extent.width
-            let cgImage = CIContext(options: nil).createCGImage(image, from: image.extent)
+            guard let cgImage = CIContext(options: nil).createCGImage(image, from: image.extent) else { return nil }
             UIGraphicsBeginImageContext(CGSize(
                 width: image.extent.size.width * scale,
                 height: image.extent.size.width * scale
             ))
             
-            let context = UIGraphicsGetCurrentContext()
-            context!.interpolationQuality = CGInterpolationQuality.none
-            context?.draw(cgImage!, in: (context?.boundingBoxOfClipPath)!)
-            let qrImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            guard let context = UIGraphicsGetCurrentContext() else { return nil }
+            context.interpolationQuality = CGInterpolationQuality.none
+            context.draw(cgImage, in: context.boundingBoxOfClipPath)
+            let qrImage : UIImage? = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return qrImage
         } else {

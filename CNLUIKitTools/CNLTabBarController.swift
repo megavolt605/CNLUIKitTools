@@ -16,18 +16,19 @@ open class CNLTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     open func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        let toView = viewController.view
+        
         guard let tabViewControllers = tabBarController.viewControllers,
             let fromView = tabBarController.selectedViewController?.view,
             let fromViewController = tabBarController.selectedViewController,
             let fromIndex = tabViewControllers.index(of: fromViewController),
+            let toView = viewController.view,
             let toIndex = tabViewControllers.index(of: viewController),
             fromView != toView
             else { return false }
         
         UIView.transition(
             from: fromView,
-            to:toView!,
+            to:toView,
             duration:0.3,
             options: (toIndex > fromIndex) ? .transitionFlipFromLeft : .transitionFlipFromRight,
             completion: { finished in

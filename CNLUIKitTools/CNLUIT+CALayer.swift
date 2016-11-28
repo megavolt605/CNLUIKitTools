@@ -23,6 +23,5 @@ public extension CALayer {
         }
         return "\(prefix)\(self)"
     }
-    
-    
+ 
 }

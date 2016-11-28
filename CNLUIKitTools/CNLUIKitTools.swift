@@ -33,24 +33,18 @@ public func splashImage(forOrientation orientation: UIInterfaceOrientation) -> U
     return nil
 }
 
-public func animationShake(_ views: [UIView]) {
-    //var shake: CABasicAnimation
-    
+public func animationShake(_ views: [UIView], distance: CGFloat = 12.0, repeatCount: Float = 3, duration: CFTimeInterval = 0.1) {
     let anim = CAKeyframeAnimation(keyPath: "transform")
-    anim.values = [
-        NSValue(caTransform3D: CATransform3DMakeTranslation(-12.0, 0.0, 0.0)),
-        NSValue(caTransform3D: CATransform3DMakeTranslation(12.0, 0.0, 0.0))
-    ]
+    let shiftLeftValues = NSValue(caTransform3D: CATransform3DMakeTranslation(-distance, 0.0, 0.0))
+    let shiftRightValue = NSValue(caTransform3D: CATransform3DMakeTranslation(distance, 0.0, 0.0))
+    anim.values = [shiftLeftValues, shiftRightValue]
     anim.autoreverses = true
-    anim.repeatCount = 3
-    anim.duration = 0.1
-    
-    for view in views {
-        view.layer.add(anim, forKey: nil)
-    }
+    anim.repeatCount = repeatCount
+    anim.duration = duration
+    views.forEach { $0.layer.add(anim, forKey: nil) }
 }
 
-public func animationMoving(_ views: [UIView], distance: CGPoint, duration: Double = 0.5) {
+public func animationMoving(_ views: [UIView], distance: CGPoint, duration: Double = 0.5, completion: ((Bool) -> Void)? = nil) {
     var orgCenter: [UIView: CGPoint] = [:]
     let dx = distance.x
     let dy = distance.y
@@ -59,46 +53,48 @@ public func animationMoving(_ views: [UIView], distance: CGPoint, duration: Doub
         orgCenter[view] = view.center
         view.center = CGPoint(x: view.center.x - dx, y: view.center.y - dy)
     }
-    UIView.animate(withDuration: duration,
-                   delay: 0.01,
-                   usingSpringWithDamping: 0.7,
-                   initialSpringVelocity: 10.0,
-                   options: UIViewAnimationOptions.curveEaseOut,
-                   animations: {
-                    for view in views {
-                        //let c = view.center
-                        view.alpha = 1.0
-                        view.center = orgCenter[view]!
-                    }
-    },
-                   completion: { done in }
+    UIView.animate(
+        withDuration: duration,
+        delay: 0.01,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 10.0,
+        options: UIViewAnimationOptions.curveEaseOut,
+        animations: {
+            for view in views {
+                //let c = view.center
+                view.alpha = 1.0
+                view.center = orgCenter[view]!
+            }
+        },
+        completion: completion
     )
 }
 
-public func animationMoveFromBottom(_ views: [UIView], distance: CGFloat, shift: Bool = true, duration: Double = 0.5) {
+public func animationMoveFromBottom(_ views: [UIView], distance: CGFloat, shift: Bool = true, duration: Double = 0.5, completion: ((Bool) -> Void)? = nil) {
     if shift {
         for view in views {
             view.center = CGPoint(x: view.center.x, y: view.center.y + distance)
         }
     }
-    UIView.animate(withDuration: duration,
-                   delay: 0.0,
-                   usingSpringWithDamping: 0.7,
-                   initialSpringVelocity: 10.0,
-                   options: UIViewAnimationOptions.curveEaseOut,
-                   animations: {
-                    for view in views {
-                        view.center = CGPoint(x: view.center.x, y: view.center.y - distance)
-                    }
-    },
-                   completion: { done in
-                    if !shift {
-                        for view in views {
-                            view.center = CGPoint(x: view.center.x, y: view.center.y + distance)
-                            
-                        }
-                    }
-    }
+    UIView.animate(
+        withDuration: duration,
+        delay: 0.0,
+        usingSpringWithDamping: 0.7,
+        initialSpringVelocity: 10.0,
+        options: UIViewAnimationOptions.curveEaseOut,
+        animations: {
+            for view in views {
+                view.center = CGPoint(x: view.center.x, y: view.center.y - distance)
+            }
+        },
+        completion: { completed in
+            if !shift {
+                for view in views {
+                    view.center = CGPoint(x: view.center.x, y: view.center.y + distance)
+                }
+            }
+            completion?(completed)
+        }
     )
 }
 
@@ -109,10 +105,7 @@ public func animationSpin(_ views: [UIView], duration: CFTimeInterval = 3.0, dir
     animation.duration = duration
     animation.repeatCount = 100000
     
-    for view in views {
-        view.layer.add(animation, forKey: "SpinAnimation")
-    }
-    
+    views.forEach { $0.layer.add(animation, forKey: "SpinAnimation") }
 }
 
 public func animationBlink(_ views: [UIView], duration: CFTimeInterval = 1.0) {
@@ -122,9 +115,7 @@ public func animationBlink(_ views: [UIView], duration: CFTimeInterval = 1.0) {
     animation.autoreverses = true
     animation.fromValue = 1.0
     animation.toValue = 0.0
-    for view in views {
-        view.layer.add(animation, forKey: "animateOpacity")
-    }
+    views.forEach { $0.layer.add(animation, forKey: "animateOpacity") }
 }
 
 public func gradientWithColors(_ colors: [UIColor], locations: [CGFloat]) -> CGGradient? {

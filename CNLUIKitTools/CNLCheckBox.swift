@@ -19,6 +19,10 @@ public enum CNLCheckBoxState {
     case empty, tick, cross
 }
 
+/// Form of the check box
+///
+/// - circle: Circle shape
+/// - square: Square shape
 public enum CNLCheckBoxForm {
     case circle, square
 }
@@ -70,6 +74,7 @@ public class CNLCheckBox: UIView {
     }
     private var _state: CNLCheckBoxState = .empty
     
+    /// Form of the check box
     public var form: CNLCheckBoxForm = .circle {
         didSet {
             updateLayers()
