@@ -147,13 +147,13 @@ public class CNLCheckBox: UIView {
         }
     }
     
-    private func updateLayers() {
+    private var borderPath: UIBezierPath {
         let centerPoint = CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0)
         let halfSideWidth = sideWidth / 2.0
-        let borderPath: UIBezierPath
+        let result: UIBezierPath
         switch form {
         case .circle:
-            borderPath = UIBezierPath(
+            result = UIBezierPath(
                 arcCenter: centerPoint,
                 radius: sideWidth / 2.0,
                 startAngle: 0.0,
@@ -161,20 +161,23 @@ public class CNLCheckBox: UIView {
                 clockwise: true
             )
         case .square:
-            borderPath = UIBezierPath(
+            result = UIBezierPath(
                 rect: CGRect(
                     origin: CGPoint.zero,
-                    size: CGSize(width: halfSideWidth, height: halfSideWidth)
+                    size: CGSize(width: sideWidth, height: sideWidth)
                 )
             )
         }
-        borderShape.path = borderPath.cgPath
-        borderShape.fillColor = currentFillColor.cgColor
-        
-        let centerPath: UIBezierPath
+        return result
+    }
+    
+    private var centerPath: UIBezierPath {
+        let centerPoint = CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0)
+        let halfSideWidth = sideWidth / 2.0
+        let result: UIBezierPath
         switch form {
         case .circle:
-            centerPath = UIBezierPath(
+            result = UIBezierPath(
                 arcCenter: centerPoint,
                 radius: sideWidth / 2.0 - currentBorderLineWidth,
                 startAngle: 0.0,
@@ -182,13 +185,20 @@ public class CNLCheckBox: UIView {
                 clockwise: true
             )
         case .square:
-            centerPath = UIBezierPath(
+            result = UIBezierPath(
                 rect: CGRect(
-                    origin: CGPoint.zero,
-                    size: CGSize(width: halfSideWidth - currentBorderLineWidth, height: halfSideWidth - currentBorderLineWidth)
+                    origin: CGPoint(x: currentBorderLineWidth, y: currentBorderLineWidth),
+                    size: CGSize(width: sideWidth - currentBorderLineWidth * 2.0, height: sideWidth - currentBorderLineWidth * 2.0)
                 )
             )
         }
+        return result
+    }
+    
+    private func updateLayers() {
+        borderShape.path = borderPath.cgPath
+        borderShape.fillColor = currentFillColor.cgColor
+        
         centerShape.path = centerPath.cgPath
         centerShape.fillColor = emptyFillColor.cgColor
     }
@@ -206,13 +216,14 @@ public class CNLCheckBox: UIView {
     
     private func startBorderLayerAnimation(animated: Bool) {
         if state == .empty {
-            let finalPath = UIBezierPath(
+            let finalPath = centerPath.cgPath
+            /*UIBezierPath(
                 arcCenter: CGPoint(x: sideWidth / 2.0, y: sideWidth / 2.0),
                 radius: sideWidth / 2.0 - currentBorderLineWidth,
                 startAngle: 0.0,
                 endAngle: doublePi,
                 clockwise: true
-                ).cgPath
+            ).cgPath*/
             if animated {
                 with(CABasicAnimation(keyPath: "path")) {
                     $0.fromValue = UIBezierPath(
