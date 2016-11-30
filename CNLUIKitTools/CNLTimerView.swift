@@ -97,6 +97,11 @@ open class CNLTimerView: UIView {
         updateProgress()
     }
     
+    open func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
     /// Updates current progress
     open func updateProgress() {
         let timePassed = -timerStartDate.timeIntervalSinceNow
