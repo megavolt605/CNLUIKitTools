@@ -17,17 +17,17 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
     
     weak var delegate: CNLSearchControllerDelegate?
     
-    var searchQueryText: String?
+    open var searchQueryText: String?
     
-    var searchBar = UISearchBar()
-    var searchBarButtonItem: UIBarButtonItem!
-    var searchButton: UIButton!
-    var navigationItem: UINavigationItem!
+    open var searchBar = UISearchBar()
+    open var searchBarButtonItem: UIBarButtonItem!
+    open var searchButton: UIButton!
+    open var navigationItem: UINavigationItem!
     
-    func setupWithDelegate(_ delegate: CNLSearchControllerDelegate, navigationItem: UINavigationItem, searchQueryText: String? = nil) {
+    open func setupWithDelegate(_ delegate: CNLSearchControllerDelegate, navigationItem: UINavigationItem, buttonImage: UIImage?, searchQueryText: String? = nil) {
         self.delegate = delegate
         searchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-        searchButton.setImage(UIImage(named: "NavBar Search"), for: UIControlState())
+        searchButton.setImage(buttonImage, for: UIControlState())
         searchButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
         searchButton.addTarget(self, action: #selector(searchButtonAction(_:)), for: .touchUpInside)
         searchBarButtonItem = UIBarButtonItem(customView: searchButton)
@@ -41,18 +41,18 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
         activate()
     }
     
-    func activate() {
+    open func activate() {
         navigationItem.rightBarButtonItem = searchBarButtonItem
     }
     
-    func deactivate(_ animated: Bool) {
+    open func deactivate(_ animated: Bool) {
         searchBar.resignFirstResponder()
         if let _ = navigationItem.titleView {
             hideSearchBar(animated)
         }
     }
     
-    fileprivate func hideSearchBar(_ animated: Bool) {
+    open func hideSearchBar(_ animated: Bool) {
         searchBar.text = nil
         if (searchQueryText ?? "") != "" {
             searchBarSearchButtonClicked(searchBar)
@@ -81,7 +81,7 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
         )
     }
     
-    func searchButtonAction(_ sender: AnyObject) {
+    open func searchButtonAction(_ sender: AnyObject) {
         UIView.animate(
             withDuration: 0.5,
             animations: {
