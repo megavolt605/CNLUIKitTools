@@ -60,25 +60,30 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
         searchBar.resignFirstResponder()
         //searchBar.setShowsCancelButton(false, animated: true)
         delegate?.searchControllerCancelled(self)
-        UIView.setAnimationsEnabled(animated)
-        UIView.animate(
-            withDuration: 0.5,
-            animations: {
-                self.searchBar.alpha = 0.0
-        },
-            completion: { completed in
-                self.navigationItem.titleView = nil
-                self.navigationItem.rightBarButtonItem = self.searchBarButtonItem
-                self.searchButton.alpha = 0.0  // set this *after* adding it back
-                UIView.animate(
-                    withDuration: 0.5,
-                    animations: {
-                        self.searchButton.alpha = 1.0
-                        UIView.setAnimationsEnabled(true)
+        
+        if animated {
+            UIView.animate(
+                withDuration: 0.5,
+                animations: {
+                    self.searchBar.alpha = 0.0
+                },
+                completion: { completed in
+                    self.navigationItem.titleView = nil
+                    self.navigationItem.rightBarButtonItem = self.searchBarButtonItem
+                    self.searchButton.alpha = 0.0  // set this *after* adding it back
+                    UIView.animate(
+                        withDuration: 0.5,
+                        animations: {
+                            self.searchButton.alpha = 1.0
+                        }
+                    )
                 }
-                )
+            )
+        } else {
+            navigationItem.titleView = nil
+            navigationItem.rightBarButtonItem = self.searchBarButtonItem
+            searchButton.alpha = 1.0
         }
-        )
     }
     
     open func searchButtonAction(_ sender: AnyObject) {
