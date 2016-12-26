@@ -1,11 +1,11 @@
 PODS:
-  - CNLFoundationTools (0.0.8)
+  - CNLFoundationTools (0.0.10)
 
 DEPENDENCIES:
   - CNLFoundationTools
 
 SPEC CHECKSUMS:
-  CNLFoundationTools: e4fb0da7761825e47bfca9efacf6abe7d2493960
+  CNLFoundationTools: 37df84706a26100ae3161755c19de973cb4866c9
 
 PODFILE CHECKSUM: 5ca0eddef8aeea3040a7fbaf3949e01a36324164
 
