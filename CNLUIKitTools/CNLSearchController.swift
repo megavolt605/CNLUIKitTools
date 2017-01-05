@@ -24,6 +24,8 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
     open var searchButton: UIButton!
     open var navigationItem: UINavigationItem!
     
+    open var isActive = false
+    
     open func setupWithDelegate(_ delegate: CNLSearchControllerDelegate, navigationItem: UINavigationItem, buttonImage: UIImage?, searchQueryText: String? = nil) {
         self.delegate = delegate
         searchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -38,25 +40,52 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
         searchBar.text = searchQueryText ?? ""
         searchBar.delegate = self
         searchBar.setShowsCancelButton(true, animated: false)
-        activate()
+        updateState()
     }
     
-    open func activate() {
-        navigationItem.rightBarButtonItem = searchBarButtonItem
-    }
-    
-    open func deactivate(_ animated: Bool) {
-        searchBar.resignFirstResponder()
-        if let _ = navigationItem.titleView {
-            hideSearchBar(animated)
+    open func updateState() {
+        if isActive {
+            // remove the search button
+            navigationItem.rightBarButtonItem = nil
+            // add the search bar
+            navigationItem.titleView = searchBar
+            searchBar.becomeFirstResponder()
+        } else {
+            searchBar.resignFirstResponder()
+            navigationItem.rightBarButtonItem = searchBarButtonItem
+            navigationItem.titleView = nil
         }
+    }
+    
+    open func activate(animated: Bool) {
+        
+        isActive = true
+        updateState()
+        
+        if animated {
+            searchBar.alpha = 0.0
+            UIView.animate(
+                withDuration: 0.5,
+                animations: {
+                    self.searchBar.alpha = 1.0
+                },
+                completion: { completed in
+                    self.searchBar.becomeFirstResponder()
+                }
+            )
+        } else {
+            searchBar.alpha = 1.0
+            searchBar.becomeFirstResponder()
+        }
+    }
+    
+    open func deactivate(animated: Bool) {
+        searchBar.resignFirstResponder()
+        hideSearchBar(animated)
+        isActive = false
     }
     
     open func hideSearchBar(_ animated: Bool) {
-        searchBar.text = nil
-        if (searchQueryText ?? "") != "" {
-            searchBarSearchButtonClicked(searchBar)
-        }
         searchBar.resignFirstResponder()
         //searchBar.setShowsCancelButton(false, animated: true)
         delegate?.searchControllerCancelled(self)
@@ -91,24 +120,10 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
             withDuration: 0.5,
             animations: {
                 self.searchButton.alpha = 0.0
-        },
+            },
             completion: { finished in
-                // remove the search button
-                self.navigationItem.rightBarButtonItem = nil
-                // add the search bar (which will start out hidden).
-                self.navigationItem.titleView = self.searchBar
-                self.searchBar.alpha = 0.0
-                
-                UIView.animate(
-                    withDuration: 0.5,
-                    animations: {
-                        self.searchBar.alpha = 1.0
-                },
-                    completion: { completed in
-                        self.searchBar.becomeFirstResponder()
-                }
-                )
-        }
+                self.activate(animated: true)
+            }
         )
     }
     
@@ -123,7 +138,11 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
     }
     
     open func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        hideSearchBar(true)
+        searchBar.text = nil
+        if (searchQueryText ?? "") != "" {
+            searchBarSearchButtonClicked(searchBar)
+        }
+        deactivate(animated: true)
     }
     
 }
