@@ -18,11 +18,14 @@ public func splashImageName(forOrientation orientation: UIInterfaceOrientation) 
         viewOrientation = "Landscape"
     }
     
-    let imagesDict = Bundle.main.infoDictionary!["UILaunchImages"] as! [NSDictionary]
-    for dict in imagesDict {
-        let imageSize = CGSizeFromString(dict["UILaunchImageSize"] as! String)
-        if imageSize.equalTo(viewSize) && viewOrientation == (dict["UILaunchImageOrientation"] as! String) {
-            return dict["UILaunchImageName"] as? String
+    if let imagesDict = Bundle.main.infoDictionary!["UILaunchImages"] as? [NSDictionary] {
+        for dict in imagesDict {
+            if let imageSizeString = dict["UILaunchImageSize"] as? String, let launchOrientation = dict["UILaunchImageOrientation"] as? String {
+                let imageSize = CGSizeFromString(imageSizeString)
+                if imageSize.equalTo(viewSize) && viewOrientation == launchOrientation {
+                    return dict["UILaunchImageName"] as? String
+                }
+            }
         }
     }
     return nil

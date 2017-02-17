@@ -10,7 +10,14 @@ import UIKit
 
 public extension UINavigationController {
     
-    public func customPush(_ viewController: UIViewController, flowView: UIView? = nil, flowImage: UIImage? = nil, baseView: UIView? = nil, transitionType: String = kCATransitionPush, subtype: String = kCATransitionFromRight) {
+    public func customPush(
+        _ viewController: UIViewController,
+        flowView: UIView? = nil,
+        flowImage: UIImage? = nil,
+        baseView: UIView? = nil,
+        transitionType: String = kCATransitionPush,
+        subtype: String = kCATransitionFromRight
+        ) {
         
         let transition: () -> Void = {
             let transition = CATransition()
@@ -37,7 +44,7 @@ public extension UINavigationController {
                     imageView.alpha = 0.1
                     imageView.center = baseView.bounds.center
                 },
-                completion: { completed in
+                completion: { _ in
                     imageView.removeFromSuperview()
                     transition()
                 }
@@ -48,7 +55,14 @@ public extension UINavigationController {
         
     }
 
-    public func pushViewController(viewController: UIViewController, duration: CFTimeInterval = 0.2, timingFunction: String = kCAMediaTimingFunctionLinear, type: String = kCATransitionPush, subtype: String = kCATransitionFromRight) {
+    public func pushViewController(
+        viewController: UIViewController,
+        duration: CFTimeInterval = 0.2,
+        timingFunction: String = kCAMediaTimingFunctionLinear,
+        type: String = kCATransitionPush,
+        subtype: String = kCATransitionFromRight
+        ) {
+        
         let transition = CATransition()
         transition.duration = duration
         transition.timingFunction = CAMediaTimingFunction(name: timingFunction)

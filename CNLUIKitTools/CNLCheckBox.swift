@@ -66,7 +66,6 @@ public class CNLCheckBox: UIView {
     }
     public var stateSequenceIndex: Int = 0
     
-
     /// Current check box state. When changed, state will change without animation
     public var state: CNLCheckBoxState {
         get { return _state }
@@ -92,7 +91,7 @@ public class CNLCheckBox: UIView {
     
     private var tapGestureRecognizer: UITapGestureRecognizer!
     private var sideWidth: CGFloat = 0.0
-    private var doublePi: CGFloat = CGFloat(M_PI) * 2.0
+    private var doublePi: CGFloat = CGFloat.pi * 2.0
     
     /// Init check box within a frame
     ///
@@ -211,7 +210,7 @@ public class CNLCheckBox: UIView {
             if stateSequenceIndex == (stateSequence.count - 1) {
                 stateSequenceIndex = 0
             } else {
-                stateSequenceIndex = stateSequenceIndex + 1
+                stateSequenceIndex += 1
             }
             setState(stateSequence[stateSequenceIndex], animated: true)
         }

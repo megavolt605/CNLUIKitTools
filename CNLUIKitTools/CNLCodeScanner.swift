@@ -25,7 +25,7 @@ public enum CNLCodeScannerMode {
 
 open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
-    open var delegate: CNLCodeScannerDelegate?
+    open weak var delegate: CNLCodeScannerDelegate?
     
     var captureSession: AVCaptureSession!
     var captureDevice: AVCaptureDevice!
@@ -37,23 +37,26 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     open var mode: CNLCodeScannerMode = .scanCode
     
     open func startReading(_ inView: UIView, isFront: Bool) -> Bool {
-        let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
-        if devices?.count == 0 {
+        guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) else { return false }
+        guard devices.count == 0 else {
             // most cases: we run in simulator
             delegate?.codeScannerError(self)
             return false
         }
+        
         captureDevice = nil
-        for device in devices as! [AVCaptureDevice] {
-            if isFront {
-                if device.position == .front {
-                    captureDevice = device
-                    break
-                }
-            } else {
-                if device.position == .back {
-                    captureDevice = device
-                    break
+        for device in devices {
+            if let device = device as? AVCaptureDevice {
+                if isFront {
+                    if device.position == .front {
+                        captureDevice = device
+                        break
+                    }
+                } else {
+                    if device.position == .back {
+                        captureDevice = device
+                        break
+                    }
                 }
             }
         }
@@ -227,7 +230,7 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
             }
         }
         
-        captureImageOutput.captureStillImageAsynchronously(from: videoConnection!) { (imageSampleBuffer: CMSampleBuffer?, error: Error?) -> Void in
+        captureImageOutput.captureStillImageAsynchronously(from: videoConnection!) { (imageSampleBuffer: CMSampleBuffer?, _: Error?) -> Void in
             //let exifAttachments = CMGetAttachment(imageSampleBuffer, kCGImagePropertyExifDictionary, nil)
             if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer) {
                 if let image = UIImage(data: imageData) {

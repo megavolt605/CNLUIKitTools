@@ -21,5 +21,4 @@ public extension CGRect {
         )
     }
     
-    
 }

@@ -28,9 +28,9 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
     
     open func setupWithDelegate(_ delegate: CNLSearchControllerDelegate, navigationItem: UINavigationItem, buttonImage: UIImage?, searchQueryText: String? = nil) {
         self.delegate = delegate
-        searchButton = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        searchButton = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0))
         searchButton.setImage(buttonImage, for: UIControlState())
-        searchButton.imageEdgeInsets = UIEdgeInsetsMake(5, 5, 5, 5)
+        searchButton.imageEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         searchButton.addTarget(self, action: #selector(searchButtonAction(_:)), for: .touchUpInside)
         searchBarButtonItem = UIBarButtonItem(customView: searchButton)
         
@@ -69,7 +69,7 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
                 animations: {
                     self.searchBar.alpha = 1.0
                 },
-                completion: { completed in
+                completion: { _ in
                     self.searchBar.becomeFirstResponder()
                 }
             )
@@ -96,7 +96,7 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
                 animations: {
                     self.searchBar.alpha = 0.0
                 },
-                completion: { completed in
+                completion: { _ in
                     self.navigationItem.titleView = nil
                     self.navigationItem.rightBarButtonItem = self.searchBarButtonItem
                     self.searchButton.alpha = 0.0  // set this *after* adding it back
@@ -121,7 +121,7 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
             animations: {
                 self.searchButton.alpha = 0.0
             },
-            completion: { finished in
+            completion: { _ in
                 self.activate(animated: true)
             }
         )
@@ -146,4 +146,3 @@ open class CNLSearchController: NSObject, UISearchBarDelegate {
     }
     
 }
-

@@ -19,7 +19,7 @@ public extension CALayer {
                 let sd = subview.recursiveDescription(prefix: prefix + "  ")
                 desc += "\r\n\(sd)"
             }
-            return desc;
+            return desc
         }
         return "\(prefix)\(self)"
     }

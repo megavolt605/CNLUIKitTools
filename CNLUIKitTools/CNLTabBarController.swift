@@ -41,5 +41,3 @@ open class CNLTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
 }
-
-

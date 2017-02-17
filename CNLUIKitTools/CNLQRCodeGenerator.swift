@@ -20,7 +20,6 @@ enum CNLQRCodeCorrectionLevel: String
 /// Class for generation QR code
 struct CNLQRCodeGenerator {
     
-
     ///  Generates UIImage with QR code of the string with specified size and correction level
     ///
     /// - Parameters:
@@ -43,7 +42,7 @@ struct CNLQRCodeGenerator {
             guard let context = UIGraphicsGetCurrentContext() else { return nil }
             context.interpolationQuality = CGInterpolationQuality.none
             context.draw(cgImage, in: context.boundingBoxOfClipPath)
-            let qrImage : UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+            let qrImage: UIImage? = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             return qrImage
         } else {

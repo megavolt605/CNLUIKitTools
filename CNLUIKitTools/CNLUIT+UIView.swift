@@ -21,11 +21,11 @@ public extension UIView {
             desc += "\r\n\(sd)"
             desc += "Layers: frame = \(subview.layer.frame) \(subview.layer)"
         }
-        return desc;
+        return desc
         
     }
     
-    public func addSubViews(_ subViews: Array<UIView>) {
+    public func addSubViews(_ subViews: [UIView]) {
         subViews.forEach { self.addSubview($0) }
     }
     
@@ -112,7 +112,7 @@ public extension UIView {
     }
     
     public func startQuiveringAnimation() {
-        let startAngle: Float = -1.0 *  Float(M_PI) / 180.0
+        let startAngle: Float = -1.0 *  Float.pi / 180.0
         let stopAngle: Float = -startAngle
         let timeOffset: CFTimeInterval = (Double(arc4random_uniform(100)) - 50.0) / 100.0
         CABasicAnimation(keyPath: "transform.rotation") --> {
@@ -140,10 +140,8 @@ public extension UIView {
         }
     }
     
-    
     public func stopBounceAnimation() {
         layer.removeAnimation(forKey: "bounce")
     }
-    
     
 }
