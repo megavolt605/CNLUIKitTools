@@ -38,7 +38,7 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
     open func startReading(_ inView: UIView, isFront: Bool) -> Bool {
         guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) else { return false }
-        guard devices.count == 0 else {
+        guard devices.count != 0 else {
             // most cases: we run in simulator
             delegate?.codeScannerError(self)
             return false
