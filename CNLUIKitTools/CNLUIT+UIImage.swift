@@ -25,7 +25,7 @@ public enum CNLImageType {
         if value == kUTTypeAppleICNS { self = .appleIcon; return } // Apple icon
         if value == kUTTypeBMP { self = .bmp; return } // Windows bitmap
         if value == kUTTypeICO { self = .ico; return } // Windows icon
-        self = .image // Abstract imga
+        self = .image // Abstract image
     }
 }
 
