@@ -119,7 +119,6 @@ public extension UIImage {
 //  Copyright © 2016 iOSDevCenters. All rights reserved.
 //
 
-
 public extension UIImage {
 
     public class func gifImage(data: Data) -> UIImage? {
