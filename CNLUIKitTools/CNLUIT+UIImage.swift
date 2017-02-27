@@ -92,14 +92,14 @@ public extension UIImage {
         return coloredImg!
     }
     
-    fileprivate func UTTypeForImageData(data: Data?) -> CFString? {
+    fileprivate class func UTTypeForImageData(data: Data?) -> CFString? {
         if let data = data, let isrc = CGImageSourceCreateWithData(data as CFData, nil) {
             return CGImageSourceGetType(isrc)
         }
         return nil
     }
     
-    public func CNLImageType(for data: Data?) -> CNLUIKitTools.CNLImageType {
+    public class func CNLImageType(for data: Data?) -> CNLUIKitTools.CNLImageType {
         if let imageType = UTTypeForImageData(data: data) {
             return CNLUIKitTools.CNLImageType(imageType)
         }
