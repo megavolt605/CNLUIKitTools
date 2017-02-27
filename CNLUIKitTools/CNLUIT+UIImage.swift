@@ -7,6 +7,27 @@
 //
 
 import UIKit
+import ImageIO
+import MobileCoreServices
+
+public enum CNLImageType {
+    
+    case image, jpeg, jpeg2000, tiff, pict, gif, png, qtImage, appleIcon, bmp, ico
+    
+    public init(_ value: CFString) {
+        if value == kUTTypePNG { self = .png; return } // PNG
+        if value == kUTTypeJPEG { self = .jpeg; return }
+        if value == kUTTypeGIF { self = .gif; return } // GIF
+        if value == kUTTypeJPEG2000 { self = .jpeg2000; return } // JPEG-2000
+        if value == kUTTypeTIFF { self = .tiff; return } // TIFF
+        if value == kUTTypePICT { self = .pict; return } // Quickdraw PICT
+        if value == kUTTypeQuickTimeImage { self = .qtImage; return } // QuickTime
+        if value == kUTTypeAppleICNS { self = .appleIcon; return } // Apple icon
+        if value == kUTTypeBMP { self = .bmp; return } // Windows bitmap
+        if value == kUTTypeICO { self = .ico; return } // Windows icon
+        self = .image // Abstract imga
+    }
+}
 
 public extension UIImage {
     
@@ -69,6 +90,20 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         
         return coloredImg!
+    }
+    
+    fileprivate func UTTypeForImageData(data: Data?) -> CFString? {
+        if let data = data, let isrc = CGImageSourceCreateWithData(data as CFData, nil) {
+            return CGImageSourceGetType(isrc)
+        }
+        return nil
+    }
+    
+    public func CNLImageType(for data: Data?) -> CNLUIKitTools.CNLImageType {
+        if let imageType = UTTypeForImageData(data: data) {
+            return CNLUIKitTools.CNLImageType(imageType)
+        }
+        return .image
     }
     
 }
