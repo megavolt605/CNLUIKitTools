@@ -107,7 +107,19 @@ public extension UIImage {
     }
 }
 
-// GIF Image Data to UIImage convertation
+//
+//  GIF Image Data to UIImage convertation
+//
+//  Inspired by:
+//
+//  iOSDevCenters+GIF.swift
+//  GIF-Swift
+//
+//  Created by iOSDevCenters on 11/12/15.
+//  Copyright © 2016 iOSDevCenters. All rights reserved.
+//
+
+
 public extension UIImage {
 
     public class func gifImage(data: Data) -> UIImage? {
