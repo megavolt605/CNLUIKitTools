@@ -105,7 +105,7 @@ public func animationMoveFromBottom(_ views: [UIView], distance: CGFloat, shift:
 public func animationSpin(_ views: [UIView], duration: CFTimeInterval = 3.0, direction: Double = 1.0) {
     let animation = CABasicAnimation(keyPath: "transform.rotation.z")
     animation.fromValue = 0
-    animation.toValue = M_PI * 2.0 * direction
+    animation.toValue = Double.pi * 2.0 * direction
     animation.duration = duration
     animation.repeatCount = 100000
     

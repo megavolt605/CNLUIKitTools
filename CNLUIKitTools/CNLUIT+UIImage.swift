@@ -53,7 +53,7 @@ public extension UIImage {
         
         let radius = max(rectWidth, rectHeight) / 2.0
         context?.beginPath()
-        context?.addArc(center: CGPoint(x: rectWidth / 2.0, y: rectHeight / 2.0), radius: radius, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: false)
+        context?.addArc(center: CGPoint(x: rectWidth / 2.0, y: rectHeight / 2.0), radius: radius, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: false)
         context?.closePath()
         context?.clip()
         

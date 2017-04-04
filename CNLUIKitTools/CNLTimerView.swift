@@ -25,7 +25,7 @@ open class CNLTimerView: UIView {
     /// CAShapeLayer with circular progress bar
     open var progressLayer = CAShapeLayer()
     /// progressLayer transform (default is rotation on -pi/2.0)
-    open var progressLayerTransform = CATransform3DMakeRotation(CGFloat(-M_PI / 2.0), 0.0, 0.0, 1.0)
+    open var progressLayerTransform = CATransform3DMakeRotation(CGFloat(-Double.pi / 2.0), 0.0, 0.0, 1.0)
     
     // time values
     /// Timer interval
