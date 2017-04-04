@@ -1,12 +1,16 @@
 PODS:
-  - CNLFoundationTools (0.0.10)
+  - CNLFoundationTools (0.0.11)
 
 DEPENDENCIES:
-  - CNLFoundationTools
+  - CNLFoundationTools (from `~/src/ComplexNumbers/CNLFoundationTools`)
+
+EXTERNAL SOURCES:
+  CNLFoundationTools:
+    :path: "~/src/ComplexNumbers/CNLFoundationTools"
 
 SPEC CHECKSUMS:
-  CNLFoundationTools: 37df84706a26100ae3161755c19de973cb4866c9
+  CNLFoundationTools: b6cc0bf36bf878e170d6e401649bfab820bad8ed
 
-PODFILE CHECKSUM: 5ca0eddef8aeea3040a7fbaf3949e01a36324164
+PODFILE CHECKSUM: 3d5da684f0a1d45ed97f5b790f0d5bf9c251c178
 
 COCOAPODS: 1.2.0
