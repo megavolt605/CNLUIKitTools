@@ -132,7 +132,6 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
             case .takePhoto: break
             }
             captureImageOutput.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
-            print(captureSession)
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer.frame = inView.layer.bounds
