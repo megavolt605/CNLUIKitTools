@@ -25,6 +25,7 @@
 		7811359B1DD7907F000D94CD /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 781135991DD7907F000D94CD /* LICENSE */; };
 		78124F621DE0847600F342B8 /* CNLTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78124F611DE0847600F342B8 /* CNLTabBarController.swift */; };
 		7854EB8C1DD8D763005F024E /* CNLUIKitTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7854EB8B1DD8D763005F024E /* CNLUIKitTools.swift */; };
+		785D62021EB251DB00F7D776 /* CNLLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785D62011EB251DA00F7D776 /* CNLLabel.swift */; };
 		7865AF6B1DE771D000102671 /* CNLCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7865AF6A1DE771D000102671 /* CNLCheckBox.swift */; };
 		78681F831DF0612100A4EF27 /* CNLSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78681F821DF0612100A4EF27 /* CNLSearchController.swift */; };
 		787920851DECC7910029673C /* CNLUIT+UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787920841DECC7910029673C /* CNLUIT+UIBarButtonItem.swift */; };
@@ -73,6 +74,7 @@
 		781135991DD7907F000D94CD /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		78124F611DE0847600F342B8 /* CNLTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLTabBarController.swift; sourceTree = "<group>"; };
 		7854EB8B1DD8D763005F024E /* CNLUIKitTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLUIKitTools.swift; sourceTree = "<group>"; };
+		785D62011EB251DA00F7D776 /* CNLLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLLabel.swift; sourceTree = "<group>"; };
 		7865AF6A1DE771D000102671 /* CNLCheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLCheckBox.swift; sourceTree = "<group>"; };
 		78681F821DF0612100A4EF27 /* CNLSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CNLSearchController.swift; sourceTree = "<group>"; };
 		787920841DECC7910029673C /* CNLUIT+UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CNLUIT+UIBarButtonItem.swift"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				787B315C1DE7A69300A30133 /* CNLTimerView.swift */,
 				787B315F1DE7A96400A30133 /* CNLRatingView.swift */,
 				78681F821DF0612100A4EF27 /* CNLSearchController.swift */,
+				785D62011EB251DA00F7D776 /* CNLLabel.swift */,
 				7854EB8B1DD8D763005F024E /* CNLUIKitTools.swift */,
 				780426F71DD60CE900878F72 /* Extensions */,
 			);
@@ -319,6 +322,7 @@
 				780426FF1DD60D8800878F72 /* CNLUIT+UIView.swift in Sources */,
 				78681F831DF0612100A4EF27 /* CNLSearchController.swift in Sources */,
 				78124F621DE0847600F342B8 /* CNLTabBarController.swift in Sources */,
+				785D62021EB251DB00F7D776 /* CNLLabel.swift in Sources */,
 				787B315B1DE7A66B00A30133 /* CNLDatePickerView.swift in Sources */,
 				7804270B1DD60EC800878F72 /* CNLUIT+UINavigationController.swift in Sources */,
 				7854EB8C1DD8D763005F024E /* CNLUIKitTools.swift in Sources */,
