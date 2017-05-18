@@ -33,7 +33,8 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     var captureImageOutput: AVCaptureStillImageOutput!
     var videoPreviewView: UIView!
     var videoPreviewLayer: AVCaptureVideoPreviewLayer!
-    var isReading = false
+    open private(set) var isReading = false
+    open var userData: Any?
     open var mode: CNLCodeScannerMode = .scanCode
     
     open func startReading(_ inView: UIView, isFront: Bool) -> Bool {
