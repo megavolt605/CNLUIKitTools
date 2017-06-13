@@ -8,6 +8,8 @@
 
 import UIKit
 
+import CNLFoundationTools
+
 public extension UIColor {
     
     public class func colorWithInt(red: UInt, green: UInt, blue: UInt, alpha: UInt) -> UIColor {
@@ -73,3 +75,15 @@ public extension UIColor {
     }
     
 }
+
+/*
+extension UIColor: CNLDictionaryDecodable {
+    public static func decodeValue(_ any: Any) -> Self? {
+        if let value = any as? UInt {
+            return self.colorWith(hex: value)
+        }
+        return nil
+    }
+    public func encodeValue() -> Any? { return hexValue() }
+}
+*/
