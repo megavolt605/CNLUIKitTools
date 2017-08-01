@@ -37,6 +37,7 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     open var userData: Any?
     open var mode: CNLCodeScannerMode = .scanCode
     
+    @discardableResult
     open func startReading(_ inView: UIView, isFront: Bool) -> Bool {
         guard let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo) else { return false }
         guard devices.count != 0 else {
