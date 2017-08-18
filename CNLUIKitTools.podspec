@@ -12,6 +12,6 @@ Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
   s.source       = { :git => "https://github.com/megavolt605/CNLUIKitTools.git", :tag => "#{s.version}" }
   s.source_files  = "CNLUIKitTools/**/*.{h,m,swift}"
   s.exclude_files = "Classes/Exclude"
-  s.framework  = "Foundation", "UIKit", "CoreLocation""
+  s.framework  = "Foundation", "UIKit", "CoreLocation"
   s.dependency "CNLFoundationTools" # , "~> 1.4"
 end
