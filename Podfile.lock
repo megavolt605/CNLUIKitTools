@@ -1,22 +1,12 @@
 PODS:
-  - CNLFoundationTools (0.0.15)
+  - CNLFoundationTools (0.0.16)
 
 DEPENDENCIES:
-  - CNLFoundationTools (from `git@github.com:megavolt605/CNLFoundationTools.git`, branch `swift4`)
-
-EXTERNAL SOURCES:
-  CNLFoundationTools:
-    :branch: swift4
-    :git: git@github.com:megavolt605/CNLFoundationTools.git
-
-CHECKOUT OPTIONS:
-  CNLFoundationTools:
-    :commit: db2d9e3803303dd00a599a471406459df182d354
-    :git: git@github.com:megavolt605/CNLFoundationTools.git
+  - CNLFoundationTools
 
 SPEC CHECKSUMS:
-  CNLFoundationTools: 03ccf6e13a5fdba3a64671b09b2d2770183425e4
+  CNLFoundationTools: 9adb90b29c5e6fe7117adb4a7cc58abd29010aec
 
-PODFILE CHECKSUM: cfc46ca5dabd7a6c6548b7db1cd8ecfaaa3e84d2
+PODFILE CHECKSUM: fbf5f1884e190891645230360aee1935545ede2d
 
-COCOAPODS: 1.3.0.beta.3
+COCOAPODS: 1.3.1
