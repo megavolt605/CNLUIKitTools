@@ -14,4 +14,5 @@ Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
   s.exclude_files = "Classes/Exclude"
   s.framework  = "Foundation", "UIKit", "CoreLocation"
   s.dependency "CNLFoundationTools" # , "~> 1.4"
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 end
