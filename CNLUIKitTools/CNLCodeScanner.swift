@@ -39,26 +39,51 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     
     @discardableResult
     open func startReading(_ inView: UIView, isFront: Bool) -> Bool {
-        let devices = AVCaptureDevice.devices(for: AVMediaType.video)
-        guard devices.count != 0 else {
+        #if swift(>=4.0)
+            let devices = AVCaptureDevice.devices(for: AVMediaType.video)
             // most cases: we run in simulator
-            delegate?.codeScannerError(self)
-            return false
-        }
+            guard devices.count != 0 else {
+                delegate?.codeScannerError(self)
+                return false
+            }
+        #else
+            let possibleDevices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
+            // most cases: we run in simulator
+            guard let devices = possibleDevices, devices.count != 0 else {
+                delegate?.codeScannerError(self)
+                return false
+            }
+        #endif
         
         captureDevice = nil
         for device in devices {
-            if isFront {
-                if device.position == .front {
-                    captureDevice = device
-                    break
+            #if swift(>=4.0)
+                if isFront {
+                    if device.position == .front {
+                        captureDevice = device
+                        break
+                    }
+                } else {
+                    if device.position == .back {
+                        captureDevice = device
+                        break
+                    }
                 }
-            } else {
-                if device.position == .back {
-                    captureDevice = device
-                    break
+            #else
+                if let device = device as? AVCaptureDevice {
+                    if isFront {
+                        if device.position == .front {
+                            captureDevice = device
+                            break
+                        }
+                    } else {
+                        if device.position == .back {
+                            captureDevice = device
+                            break
+                        }
+                    }
                 }
-            }
+            #endif
         }
         
         if captureDevice == nil {
@@ -103,7 +128,11 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         do {
             let input = try AVCaptureDeviceInput(device: captureDevice)
             captureSession = AVCaptureSession()
-            captureSession.sessionPreset = AVCaptureSession.Preset.high
+            #if swift(>=4.0)
+                captureSession.sessionPreset = AVCaptureSession.Preset.high
+            #else
+                captureSession.sessionPreset = AVCaptureSessionPresetHigh
+            #endif
             captureSession.addInput(input)
             
             captureImageOutput = AVCaptureStillImageOutput()
@@ -117,23 +146,42 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
                 captureSession.addOutput(captureMetadataOutput)
                 
                 captureMetadataOutput.setMetadataObjectsDelegate(self, queue:dispatchQueue)
-                captureMetadataOutput.metadataObjectTypes = [
-                    AVMetadataObject.ObjectType.qr,
-                    AVMetadataObject.ObjectType.upce,
-                    AVMetadataObject.ObjectType.code39,
-                    AVMetadataObject.ObjectType.code39Mod43,
-                    AVMetadataObject.ObjectType.ean13,
-                    AVMetadataObject.ObjectType.ean8,
-                    AVMetadataObject.ObjectType.code93,
-                    AVMetadataObject.ObjectType.code128,
-                    AVMetadataObject.ObjectType.pdf417,
-                    AVMetadataObject.ObjectType.aztec
-                ]
+                #if swift(>=4.0)
+                    captureMetadataOutput.metadataObjectTypes = [
+                        AVMetadataObject.ObjectType.qr,
+                        AVMetadataObject.ObjectType.upce,
+                        AVMetadataObject.ObjectType.code39,
+                        AVMetadataObject.ObjectType.code39Mod43,
+                        AVMetadataObject.ObjectType.ean13,
+                        AVMetadataObject.ObjectType.ean8,
+                        AVMetadataObject.ObjectType.code93,
+                        AVMetadataObject.ObjectType.code128,
+                        AVMetadataObject.ObjectType.pdf417,
+                        AVMetadataObject.ObjectType.aztec
+                    ]
+                #else
+                    captureMetadataOutput.metadataObjectTypes = [
+                        AVMetadataObjectTypeQRCode,
+                        AVMetadataObjectTypeUPCECode,
+                        AVMetadataObjectTypeCode39Code,
+                        AVMetadataObjectTypeCode39Mod43Code,
+                        AVMetadataObjectTypeEAN13Code,
+                        AVMetadataObjectTypeEAN8Code,
+                        AVMetadataObjectTypeCode93Code,
+                        AVMetadataObjectTypeCode128Code,
+                        AVMetadataObjectTypePDF417Code,
+                        AVMetadataObjectTypeAztecCode
+                    ]
+                #endif
             case .takePhoto: break
             }
             captureImageOutput.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            #if swift(>=4.0)
+                videoPreviewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+            #else
+                videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+            #endif
             videoPreviewLayer.frame = inView.layer.bounds
             inView.layer.addSublayer(videoPreviewLayer)
             videoPreviewView = inView
@@ -216,13 +264,30 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         }
         var videoConnection: AVCaptureConnection? = nil
         for connection in captureImageOutput.connections {
-            if (connection.inputPorts.contains { $0.mediaType == AVMediaType.video }) {
-                videoConnection = connection
-                break
-            }
-            if videoConnection != nil {
-                break
-            }
+            #if swift(>=4.0)
+                if (connection.inputPorts.contains { $0.mediaType == AVMediaType.video }) {
+                    videoConnection = connection
+                    break
+                }
+                if videoConnection != nil {
+                    break
+                }
+            #else
+                if let connection = connection as? AVCaptureConnection {
+                    if (connection.inputPorts.contains {
+                        if let inputPort = $0 as? AVCaptureInputPort {
+                            return inputPort.mediaType == AVMediaTypeVideo
+                        }
+                        return false
+                    }) {
+                        videoConnection = connection
+                        break
+                    }
+                    if videoConnection != nil {
+                        break
+                    }
+                }
+            #endif
         }
         
         captureImageOutput.captureStillImageAsynchronously(from: videoConnection!) { (imageSampleBuffer: CMSampleBuffer?, _: Error?) -> Void in
