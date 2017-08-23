@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   CNLFoundationTools:
-    :commit: 5ba84cb46353d7ed7945579aa37ec3b62d72f22c
+    :commit: b9aeea68ead9e86e29a948cd9fa0be337020e9db
     :git: git@github.com:megavolt605/CNLFoundationTools.git
 
 SPEC CHECKSUMS:
