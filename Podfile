@@ -7,7 +7,7 @@ target 'CNLUIKitTools' do
 
   # Pods for CNLUIKitTools
   #pod 'CNLFoundationTools', :path => '~/src/ComplexNumbers/CNLFoundationTools'
-  pod 'CNLFoundationTools', :git => 'git@github.com:megavolt605/CNLFoundationTools.git', :branch => 'swift4'
+  pod 'CNLFoundationTools', :git => 'git@github.com:megavolt605/CNLFoundationTools.git'
   
 end
 
