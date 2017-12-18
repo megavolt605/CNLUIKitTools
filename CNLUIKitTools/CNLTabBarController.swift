@@ -28,8 +28,8 @@ open class CNLTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         UIView.transition(
             from: fromView,
-            to:toView,
-            duration:0.3,
+            to: toView,
+            duration: 0.3,
             options: (toIndex > fromIndex) ? .transitionFlipFromLeft : .transitionFlipFromRight,
             completion: { finished in
                 if finished {

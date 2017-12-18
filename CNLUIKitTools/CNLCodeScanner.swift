@@ -127,7 +127,7 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
                 captureMetadataOutput = AVCaptureMetadataOutput()
                 captureSession.addOutput(captureMetadataOutput)
                 captureMetadataOutput.metadataObjectTypes = metadataTypes.filter { captureMetadataOutput.availableMetadataObjectTypes.contains($0) }
-                captureMetadataOutput.setMetadataObjectsDelegate(self, queue:dispatchQueue)
+                captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatchQueue)
             case .takePhoto: break
             }
             

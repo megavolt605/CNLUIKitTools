@@ -27,7 +27,7 @@ public struct CNLQRCodeGenerator {
     ///   - correctionLevel: Amount of excess information
     /// - Returns: UIImage with QR code
     public static func generate(forString qrString: String, withSize size: CGFloat = 200.0, correctionLevel: CNLQRCodeCorrectionLevel = .percent25) -> UIImage? {
-        if let stringData = qrString.data(using: String.Encoding.utf8), let qrFilter = CIFilter(name:"CIQRCodeGenerator") {
+        if let stringData = qrString.data(using: String.Encoding.utf8), let qrFilter = CIFilter(name: "CIQRCodeGenerator") {
             qrFilter.setValue(stringData, forKey: "inputMessage")
             qrFilter.setValue(correctionLevel.rawValue, forKey: "inputCorrectionLevel")
             guard let image = qrFilter.outputImage else { return nil }

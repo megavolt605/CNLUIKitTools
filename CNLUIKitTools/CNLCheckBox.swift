@@ -259,7 +259,7 @@ public class CNLCheckBox: UIView {
                         radius: sideWidth / 2.0 - currentBorderLineWidth,
                         startAngle: 0.0,
                         endAngle: doublePi,
-                        clockwise:true
+                        clockwise: true
                         ).cgPath
                     $0.toValue = finalPath
                     $0.duration = animationDuration / 3.0 * 2.0
