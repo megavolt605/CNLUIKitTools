@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CNLUIKitTools"
-  s.version      = "0.0.22"
+  s.version      = "0.0.23"
   s.summary      = "Common extensions to UIKit"
   s.description  = <<-DESC
 Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
@@ -14,5 +14,5 @@ Common extensions to UIKit. Commonly used in other Comlex Numbers projects.
   s.exclude_files = "Classes/Exclude"
   s.framework  = "Foundation", "UIKit", "CoreLocation"
   s.dependency "CNLFoundationTools" # , "~> 1.4"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.1' }
 end
