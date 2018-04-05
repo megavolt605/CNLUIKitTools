@@ -364,17 +364,17 @@ public class CNLCheckBox: UIView {
             
         case .cross:
             let datumPoint = sideWidth / 3.0
-            let point_TopLeft = CGPoint(x: datumPoint, y: datumPoint)
-            let point_TopRight = CGPoint(x: 2.0 * datumPoint, y: datumPoint)
-            let point_BottomLeft = CGPoint(x: datumPoint, y: 2.0 * datumPoint)
-            let point_BottomRight = CGPoint(x: 2.0 * datumPoint, y: 2.0 * datumPoint)
+            let pointTopLeft = CGPoint(x: datumPoint, y: datumPoint)
+            let pointTopRight = CGPoint(x: 2.0 * datumPoint, y: datumPoint)
+            let pointBottomLeft = CGPoint(x: datumPoint, y: 2.0 * datumPoint)
+            let pointBottomRight = CGPoint(x: 2.0 * datumPoint, y: 2.0 * datumPoint)
             
             let tickLayer = CAShapeLayer() --> {
                 $0.path = (UIBezierPath() --> {
-                    $0.move(to: point_TopLeft)
-                    $0.addLine(to: point_BottomRight)
-                    $0.move(to: point_TopRight)
-                    $0.addLine(to: point_BottomLeft)
+                    $0.move(to: pointTopLeft)
+                    $0.addLine(to: pointBottomRight)
+                    $0.move(to: pointTopRight)
+                    $0.addLine(to: pointBottomLeft)
                 }).cgPath
                 $0.lineWidth = currentLineWidth
                 $0.lineCap = kCALineCapRound

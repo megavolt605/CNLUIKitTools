@@ -124,6 +124,10 @@ public func animationBlink(_ views: [UIView], duration: CFTimeInterval = 1.0) {
 
 public func gradientWithColors(_ colors: [UIColor], locations: [CGFloat]) -> CGGradient? {
     let colorSpace = CGColorSpaceCreateDeviceRGB()
+    #if swift(>=4.1)
+    let cgcolors = colors.map { $0.cgColor } as NSArray
+    #else
     let cgcolors = colors.map { $0.cgColor as AnyObject! } as NSArray
+    #endif
     return CGGradient(colorsSpace: colorSpace, colors: cgcolors, locations: locations)
 }

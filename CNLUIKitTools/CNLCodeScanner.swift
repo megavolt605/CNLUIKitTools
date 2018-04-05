@@ -102,7 +102,7 @@ open class CNLCodeScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
             captureDevice.exposureMode = .continuousAutoExposure
         } else {
             if captureDevice.isExposureModeSupported(.autoExpose) {
-                captureDevice.exposureMode = .continuousAutoExposure
+                captureDevice.exposureMode = .autoExpose
             } else {
                 if captureDevice.isExposureModeSupported(.locked) {
                     captureDevice.exposureMode = .locked
