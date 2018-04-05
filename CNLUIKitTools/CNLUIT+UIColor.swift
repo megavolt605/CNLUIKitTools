@@ -31,11 +31,10 @@ public extension UIColor {
     public class func colorWith(string: String?, reverse: Bool = false) -> UIColor? {
         if let stringColor = string, let reversedColor = UInt(stringColor, radix: 16) {
             if reverse {
-                let color =
-                    ((reversedColor & 0x000000FF) << 16) |
-                        ((reversedColor & 0x00FF0000) >> 16) |
-                        (reversedColor & 0xFF00FF00)
-                return UIColor.colorWith(hex: color)
+                let color1 = (reversedColor & 0x000000FF) << 16
+                let color2 = (reversedColor & 0x00FF0000) >> 16
+                let color3 = reversedColor & 0xFF00FF00
+                return UIColor.colorWith(hex: color1 | color2 | color3)
             } else {
                 return UIColor.colorWith(hex: reversedColor)
             }
@@ -56,11 +55,10 @@ public extension UIColor {
             let hexAlpha = UInt(255.0 * alpha) << 24
             let color = hexRed | hexGreen | hexBlue | hexAlpha
             if reversed {
-                let reversedColor =
-                    ((color & 0x000000FF) << 16) |
-                        ((color & 0x00FF0000) >> 16) |
-                        (color & 0xFF00FF00)
-                return reversedColor
+                let reversedColor1 = (color & 0x000000FF) << 16
+                let reversedColor2 = (color & 0x00FF0000) >> 16
+                let reversedColor3 = color & 0xFF00FF00
+                return reversedColor1 | reversedColor2 | reversedColor3
             } else {
                 return color
             }
