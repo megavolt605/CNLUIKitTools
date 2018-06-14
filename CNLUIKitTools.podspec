@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "CNLUIKitTools"
-  s.version      = "0.0.23"
+  s.version      = "0.0.24"
   s.summary      = "Common extensions to UIKit"
   s.description  = <<-DESC
 Common extensions to UIKit. Commonly used in other Comlex Numbers projects.

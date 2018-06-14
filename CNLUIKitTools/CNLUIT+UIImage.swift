@@ -67,7 +67,7 @@ public extension UIImage {
         return newImage!
     }
     
-    public func imageWithColor(_ color: UIColor) -> UIImage {
+    public func image(withColor color: UIColor) -> UIImage {
         
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         
@@ -91,7 +91,21 @@ public extension UIImage {
         
         return coloredImg!
     }
-    
+
+    public static func imageWith(singleColor color: UIColor) -> UIImage? {
+        let rect = CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return image
+    }
+
     fileprivate class func UTTypeForImageData(data: Data?) -> CFString? {
         if let data = data, let isrc = CGImageSourceCreateWithData(data as CFData, nil) {
             return CGImageSourceGetType(isrc)
